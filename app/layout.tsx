@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Container } from "@/components/common/container/container";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -23,10 +24,12 @@ export default function RootLayout({
       lang="pt-br"
       className={cn("h-full", "antialiased", "bg-neutral-50", title.variable, text.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-screen flex flex-col px-10">
+      <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pb-20">
-          {children}
+          <Container>
+            {children}
+          </Container>
         </main>
         <Footer />
       </body>
