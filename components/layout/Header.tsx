@@ -19,7 +19,8 @@ export function Header() {
     { label: "Sobre", href: "/about" },
     { label: "Equipe", href: "/team" },
     { label: "Pesquisa", href: "/research" },
-    { label: "Publicações", href: "/publishes" },
+    { label: "Publicações", href: "/publications" },
+    { label: "Equipamentos", href: "/equipments" },
     { label: "Contato", href: "/contact" },
   ];
 
@@ -64,7 +65,7 @@ export function Header() {
 
           {/* CTA */}
           <Button asChild className="ml-2 shadow-sm" size="sm">
-            <Link href="/agendamentos">Agendar</Link>
+            <Link href="/schedule">Agendar</Link>
           </Button>
         </nav>
 
