@@ -9,8 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
+        primary:
           "bg-primary text-primary-foreground hover:opacity-90 active:opacity-80",
+
+        "primary-soft":
+          "bg-primary-soft text-primary hover:opacity-90 active:opacity-80",
 
         secondary:
           "bg-secondary text-secondary-foreground hover:opacity-90",
@@ -34,7 +37,7 @@ const buttonVariants = cva(
     },
 
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   }
@@ -42,7 +45,7 @@ const buttonVariants = cva(
 
 function Button({
   className,
-  variant = "default",
+  variant = "primary",
   size = "default",
   asChild = false,
   loading = false,
@@ -74,7 +77,7 @@ function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, className }), "gap-2")}
       {...props}
     >
       {loading && (

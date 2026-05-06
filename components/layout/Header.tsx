@@ -16,11 +16,11 @@ export function Header() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Sobre", href: "/sobre" },
-    { label: "Equipe", href: "/equipe" },
-    { label: "Pesquisa", href: "/pesquisa" },
-    { label: "Publicações", href: "/publicacoes" },
-    { label: "Contato", href: "/contato" },
+    { label: "Sobre", href: "/about" },
+    { label: "Equipe", href: "/team" },
+    { label: "Pesquisa", href: "/research" },
+    { label: "Publicações", href: "/publishes" },
+    { label: "Contato", href: "/contact" },
   ];
 
   return (
@@ -28,7 +28,7 @@ export function Header() {
       w-full 
       sticky top-0 z-50
       border-b border-border
-      bg-primary-foreground/80 backdrop-blur
+      bg-background/80 backdrop-blur
     ">
       <div className="
         max-w-6xl 
@@ -53,7 +53,7 @@ export function Header() {
           {navItems.map((item, index) => (
             <Button
               key={index}
-              variant={pathname === item.href ? "default" : "ghost"}
+              variant={pathname === item.href ? "primary" : "ghost"}
               className="data-[active=true]:bg-default/10"
               size="sm"
               asChild
@@ -83,7 +83,7 @@ export function Header() {
                 {navItems.map((item, index) => (
                   <Button
                     key={index}
-                    variant={pathname === item.href ? "default" : "ghost"}
+                    variant={pathname === item.href ? "primary" : "ghost"}
                     className="data-[active=true]:bg-default/10"
                     asChild
                   >

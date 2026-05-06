@@ -4,26 +4,24 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
-import { Card } from "./card";
 import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
 
-type IconCardProps = {
-  icon: ReactNode;
+type SimpleCardProps = {
   title: string;
-  description?: string;
+  children: React.ReactNode;
   href?: string;
   cta?: string;
   className?: string;
 };
 
-export function IconCard({
-  icon,
+export function SimpleCard({
   title,
-  description,
+  children,
   href,
   cta = "Ver equipe",
   className,
-}: IconCardProps) {
+}: SimpleCardProps) {
   const content = (
     <Card
       interactive
@@ -32,27 +30,14 @@ export function IconCard({
         className
       )}
     >
-      {/* ICON */}
-      <div className="
-        w-12 h-12 
-        flex items-center justify-center 
-        rounded-lg 
-        bg-muted
-        text-foreground
-      ">
-        {icon}
-      </div>
-
       {/* TEXT */}
-      <div className="space-y-1">
+      <div className="space-y-3">
         <h3 className="font-heading text-base font-semibold">
           {title}
         </h3>
 
-        {description && (
-          <p className="text-sm text-muted-foreground">
-            {description}
-          </p>
+        {children && (
+          children
         )}
       </div>
 

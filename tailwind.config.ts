@@ -32,7 +32,7 @@ export default {
         card: "hsl(var(--color-card))",
         "card-foreground": "hsl(var(--color-card-foreground))",
 
-        "primary-soft": "hsl(var(--primary-soft))",
+        "primary-soft": "hsl(var(--color-primary-soft))",
         "secondary-soft": "hsl(var(--secondary-soft))",
       },
 

@@ -4,28 +4,21 @@ import { Container } from "../container/container";
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
-
-  // controla largura
-  container?: boolean;
-
-  // variações visuais
   variant?: "default" | "muted" | "primary";
-
-  // espaçamento
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
 };
 
 export function Section({
   children,
   className,
-  container = true,
   variant = "default",
   size = "md",
 }: SectionProps) {
   const sizes = {
-    sm: "py-10",
-    md: "py-16",
-    lg: "py-24",
+    sm: "py-16",
+    md: "py-24",
+    lg: "py-32",
+    xl: "py-40",
   };
 
   const variants = {
@@ -33,12 +26,6 @@ export function Section({
     muted: "bg-muted",
     primary: "bg-primary text-primary-foreground",
   };
-
-  const content = container ? (
-    <Container>{children}</Container>
-  ) : (
-    children
-  );
 
   return (
     <section
@@ -48,7 +35,7 @@ export function Section({
         className
       )}
     >
-      {content}
+      {children}
     </section>
   );
 }
