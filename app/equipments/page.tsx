@@ -12,51 +12,8 @@ import {
   Microscope,
   Calendar,
 } from "lucide-react";
-
-const equipment = [
-  {
-    icon: <ActivitySquare />,
-    title: "Termociclador em Tempo Real",
-    description: "Sistema de PCR quantitativo para análises moleculares",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-  {
-    icon: <AlignJustify />,
-    title: "Sequenciador de Nova Geração",
-    description: "Plataforma de sequenciamento massivo paralelo",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-  {
-    icon: <Zap />,
-    title: "Centrífuga Refrigerada",
-    description: "Centrífuga de alta velocidade com controle de temperatura",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-  {
-    icon: <FlaskConical />,
-    title: "Cabine de Segurança Biológica",
-    description: "Cabine de fluxo laminar Classe II tipo A2",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-  {
-    icon: <Droplets />,
-    title: "Espectrofotômetro NanoDrop",
-    description: "Espectrofotômetro de microvolume",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-  {
-    icon: <Microscope />,
-    title: "Microscópio de Fluorescência",
-    description: "Microscópio invertido com sistema de epifluorescência",
-    href: "#",
-    cta: "Ver Detalhes",
-  },
-];
+import { assetsService } from "@/services/assets-service";
+import EquipmentsList from "@/components/features/equipment/equipment-list";
 
 const requirements = [
   "Treinamento específico para operação do equipamento",
@@ -66,7 +23,9 @@ const requirements = [
   "Compromisso de manutenção e limpeza após uso",
 ];
 
-export default function EquipmentsPage() {
+export default async function EquipmentsPage() {
+  const equipments = await assetsService.getAll();
+
   return (
     <>
       {/* Hero */}
@@ -84,22 +43,7 @@ export default function EquipmentsPage() {
       {/* Equipment grid */}
       <Section size="md">
         <Container className="flex flex-col gap-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {equipment.map((item) => (
-              <IconCard
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                href={item.href}
-                cta={item.cta}
-                className="h-full"
-              >
-                <Typography variant="muted" as="p">
-                  {item.description}
-                </Typography>
-              </IconCard>
-            ))}
-          </div>
+          <EquipmentsList equipments={equipments}/>
 
           {/* Access block */}
           <div className="rounded-xl border border-border bg-card p-8 flex flex-col gap-4">
