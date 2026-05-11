@@ -9,8 +9,9 @@ export default function Home() {
   return (
     <>  
       <Section
-        variant="primary"
+        bgImage="/images/hero.jpg"
         size="xl"
+        className="text-primary-foreground"
       >
         <Container
           className="
@@ -55,7 +56,7 @@ export default function Home() {
             title="Nossa Equipe"
             cta="Ver equipe" 
             icon={<Users />}
-            href="/team"    
+            href="/team"   
           >
             <Typography variant="muted" as="p">
               Conheça os pesquisadores e profissionais dedicados à excelência científica.
@@ -98,9 +99,10 @@ export default function Home() {
             w-12 h-12 
             flex items-center justify-center 
             rounded-lg 
-            bg-muted
-            text-foreground
-          ">
+            bg-primary
+          "
+          style={{color: "oklch(0.98 0.01 170)"}}
+          >
             <Microscope/>
           </div>
           <Typography variant="h2" as="h2">

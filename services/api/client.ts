@@ -18,6 +18,12 @@ async function apiFetch<T>(path: string, options: FetchOptions = {}): Promise<T>
   });
 
   if (!res.ok) throw new Error(`API error ${res.status}: ${path}`);
+
+  const contentType = res.headers.get("content-type");
+  if (!contentType || !contentType.includes("application/json")) {
+    return null as T;
+  }
+
   return res.json() as Promise<T>;
 }
 

@@ -31,7 +31,7 @@ export default async function EquipmentDetailPage({ params }: Props) {
       <Section variant="primary" size="sm">
         <Container>
           <Link
-            href="/equipment"
+            href="/equipments"
             className="inline-flex items-center gap-1.5 text-primary-foreground/70 hover:text-primary-foreground text-sm mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -55,21 +55,24 @@ export default async function EquipmentDetailPage({ params }: Props) {
               bg-muted border border-border
             ">
               {/* Troque src pela URL real quando integrar com o backend */}
-              <Image
-                src={`/api/equipment/${equipment.id}/image`}
-                alt={`Imagem do equipamento ${equipment.name}`}
-                fill
-                className="object-contain p-6"
-                onError={undefined}
-              />
-              {/* Fallback visual enquanto não há imagem */}
-              <div className="
-                absolute inset-0 flex flex-col items-center justify-center gap-3
-                text-muted-foreground
-              ">
-                <FlaskConical className="w-16 h-16 opacity-20" />
-                <span className="text-sm opacity-40">Sem imagem disponível</span>
-              </div>
+              {equipment.imageUrl ? (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${equipment.imageUrl}`}
+                  alt={`Imagem do equipamento ${equipment.name}`}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="
+                  absolute inset-0 flex flex-col items-center justify-center gap-3
+                  text-muted-foreground
+                ">
+                  <FlaskConical className="w-16 h-16 opacity-20" />
+                  <span className="text-sm opacity-40">
+                    Sem imagem disponível
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 

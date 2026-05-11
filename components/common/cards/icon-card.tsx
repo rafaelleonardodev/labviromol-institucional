@@ -14,6 +14,8 @@ type IconCardProps = {
   href?: string;
   cta?: string;
   className?: string;
+  iconColor?: "primary" | "default" | "primary-foreground";
+  iconBg?: "primary";
 };
 
 export function IconCard({
@@ -23,7 +25,19 @@ export function IconCard({
   href,
   cta = "Ver equipe",
   className,
+  iconColor = "primary-foreground",
+  iconBg = "primary"
 }: IconCardProps) {
+  const colors = {
+    default: "oklch(0.18 0.02 170)",
+    primary: "oklch(0.45 0.12 200)",
+    "primary-foreground": "oklch(0.98 0.01 170)"
+  }
+
+  const iconBgs = {
+    primary: "bg-primary"
+  }
+
   const content = (
     <Card
       interactive
@@ -33,13 +47,13 @@ export function IconCard({
       )}
     >
       {/* ICON */}
-      <div className="
-        w-12 h-12 
-        flex items-center justify-center 
-        rounded-lg 
-        bg-muted
-        text-foreground
-      ">
+      <div className={cn(
+        "w-12 h-12 flex items-center justify-center rounded-lg",
+        iconBgs[iconBg]
+      )}
+      style={
+        {color: colors[iconColor]}
+      }>
         {icon}
       </div>
 
