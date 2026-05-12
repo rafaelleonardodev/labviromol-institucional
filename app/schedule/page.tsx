@@ -8,9 +8,18 @@ import { Card } from "@/components/ui/card";
 import { IMPORTANT_INFO } from "./schedule.constants";
 import { ScheduleForm } from "./schedule-form";
 import { assetsService } from "@/services/assets-service";
+import { Equipment } from "@/utils/types";
 
 export default async function SchedulePage() {
-  const equipmentsOptions = await assetsService.getAll();
+  let equipmentsOptions: Equipment[] = [];
+  let error = null;
+
+  try {
+    equipmentsOptions = await assetsService.getAll();
+  } catch (err) {
+    error = err instanceof Error ? err.message : "Erro ao buscar equipamentos";
+    console.error("Erro ao buscar equipamentos:", err);
+  }
 
   return (
     <>

@@ -1,19 +1,10 @@
-import { IconCard } from "@/components/common/cards/icon-card";
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import Link from "next/link";
-import {
-  ActivitySquare,
-  AlignJustify,
-  Zap,
-  FlaskConical,
-  Droplets,
-  Microscope,
-  Calendar,
-} from "lucide-react";
 import { assetsService } from "@/services/assets-service";
 import EquipmentsList from "@/components/features/equipment/equipment-list";
+import { Equipment } from "@/utils/types";
 
 const requirements = [
   "Treinamento específico para operação do equipamento",
@@ -24,7 +15,16 @@ const requirements = [
 ];
 
 export default async function EquipmentsPage() {
-  const equipments = await assetsService.getAll();
+  let equipments: Equipment[] = [];
+  let error = null;
+
+  try {
+    equipments = await assetsService.getAll();
+  } catch (err) {
+    error = err instanceof Error ? err.message : "Erro ao buscar equipamentos";
+    console.error("Erro ao buscar equipamentos:", err);
+  }
+
 
   return (
     <>

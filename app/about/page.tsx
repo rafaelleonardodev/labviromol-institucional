@@ -11,7 +11,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <Section size="sm" variant="primary">
+      <Section size="lg" variant="primary">
         <Container 
           className="
            flex

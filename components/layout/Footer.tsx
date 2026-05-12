@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t bg-primary-foreground">
+    <footer className="mt-20 border-t bg-background">
       <div className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3">
 
         {/* SOBRE */}

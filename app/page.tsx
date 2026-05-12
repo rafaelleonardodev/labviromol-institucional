@@ -4,6 +4,7 @@ import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Calendar, FlaskConical, Microscope, Users } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -32,23 +33,24 @@ export default function Home() {
             Centro de excelência em pesquisa virológica molecular, comprometido com a inovação científica, diagnóstico avançado e desenvolvimento tecnológico.
           </Typography>
           <div className="flex gap-2">
-            <Button variant={"secondary"}>
-              <Calendar />
-              Agendar uso de equipamento
+            <Button asChild variant={"secondary"}>
+              <Link href="/schedule" className="flex gap-2">
+                <Calendar />
+                Agendar uso de equipamento
+              </Link>
             </Button>
-            <Button variant={"primary-soft"}>
-              Conheça nosso trabalho
-              <ArrowRight />
+
+            <Button asChild variant={"primary-soft"}>
+              <Link href="/about" className="flex gap-2">
+                Conheça nosso trabalho
+                <ArrowRight />
+              </Link>
             </Button>
           </div>
         </Container>
       </Section>
       
-      <Section
-        className="
-         bg-card
-        "
-      >
+      <Section>
         <Container
           className="flex gap-4 items-center align-center"
         >
@@ -84,7 +86,9 @@ export default function Home() {
           </IconCard>
         </Container>
       </Section>
-      <Section>
+      <Section
+        className="bg-primary-foreground"
+      >
         <Container
           className="
            flex

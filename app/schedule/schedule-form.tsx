@@ -151,7 +151,7 @@ export function ScheduleForm({
           )}
           <Button
             type="button"
-            variant="outline"
+            variant="primary"
             size="sm"
             className="w-fit"
             onClick={() => append({ equipmentId: "", name: "" })}
@@ -282,7 +282,7 @@ export function ScheduleForm({
             </Field>
           )}
         />
-        <div className="border-t border-border pt-4 flex flex-col gap-4">
+        <div className="border-t border-border pt-4 flex flex-col gap-8">
           <Controller
             name="acceptTerm"
             control={form.control}
@@ -318,7 +318,7 @@ export function ScheduleForm({
           />
           <Button
             type="submit"
-            variant="primary"
+            variant="secondary"
             size="lg"
             className="w-full"
             loading={form.formState.isSubmitting}

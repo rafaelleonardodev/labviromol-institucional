@@ -18,6 +18,9 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:opacity-90",
 
+        "secondary-soft":
+          "bg-secondary-soft hover:opacity-90",
+
         outline:
           "border border-border bg-background hover:bg-accent text-foreground",
 
