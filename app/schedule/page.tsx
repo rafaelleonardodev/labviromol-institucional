@@ -33,7 +33,7 @@ export default async function SchedulePage() {
         </Container>
       </Section>
 
-      <Section size="md">
+      <Section size="md" variant="muted">
         <Container className="flex flex-col gap-6">
           {/* Aviso */}
           <div className="flex items-start gap-2.5 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
