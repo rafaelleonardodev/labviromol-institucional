@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Laboratório de Virologia Molecular",
+    "subtitle": "Centro de excelência em pesquisa virológica molecular, comprometido com a inovação científica, diagnóstico avançado e desenvolvimento tecnológico."
+  },
+  "cta": {
+    "schedule": "Agendar uso de equipamento",
+    "about": "Conheça nosso trabalho"
+  },
+  "cards": {
+    "team": {
+      "title": "Nossa Equipe",
+      "description": "Conheça os pesquisadores e profissionais dedicados à excelência científica.",
+      "cta": "Ver equipe"
+    },
+    "research": {
+      "title": "Pesquisas em Andamento",
+      "description": "Explore nossos projetos de pesquisa e suas contribuições científicas.",
+      "cta": "Ver pesquisas"
+    },
+    "publications": {
+      "title": "Publicações Científicas",
+      "description": "Acesse nossas publicações em periódicos científicos de alto impacto.",
+      "cta": "Ver publicações"
+    }
+  },
+  "mission": {
+    "title": "Nossa Missão",
+    "description": "Desenvolver pesquisa científica de excelência na área de virologia molecular, contribuindo para o avanço do conhecimento, formação de recursos humanos qualificados e desenvolvimento de soluções inovadoras para diagnóstico e controle de doenças virais."
+  }
+}

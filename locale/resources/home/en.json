@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Molecular Virology Laboratory",
+    "subtitle": "A center of excellence in molecular virological research, committed to scientific innovation, advanced diagnostics, and technological development."
+  },
+  "cta": {
+    "schedule": "Schedule equipment use",
+    "about": "Discover our work"
+  },
+  "cards": {
+    "team": {
+      "title": "Our Team",
+      "description": "Meet the researchers and professionals dedicated to scientific excellence.",
+      "cta": "View team"
+    },
+    "research": {
+      "title": "Ongoing Research",
+      "description": "Explore our research projects and their scientific contributions.",
+      "cta": "View research"
+    },
+    "publications": {
+      "title": "Scientific Publications",
+      "description": "Access our publications in high-impact scientific journals.",
+      "cta": "View publications"
+    }
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To develop excellent scientific research in the field of molecular virology, contributing to the advancement of knowledge, the training of qualified human resources, and the development of innovative solutions for the diagnosis and control of viral diseases."
+  }
+}
