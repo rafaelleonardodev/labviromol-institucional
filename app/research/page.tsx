@@ -1,59 +1,10 @@
-import { ResearchCard } from "@/components/features/cards/research-card";
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import { FlaskConical, ClipboardCheck } from "lucide-react";
-
-const projects = [
-  {
-    title: "Caracterização Molecular de Vírus Emergentes",
-    description:
-      "Estudo aprofundado da estrutura genética e mecanismos de transmissão de vírus emergentes, com foco em epidemias regionais. Utilização de sequenciamento de nova geração e análises filogenéticas para compreender a evolução e dispersão viral.",
-    responsible: "Dra. Maria Fernanda Silva",
-    funding: "CNPq",
-    status: "Em andamento" as const,
-  },
-  {
-    title: "Desenvolvimento de Métodos Diagnósticos Rápidos",
-    description:
-      "Criação de kits de diagnóstico molecular com alta sensibilidade e especificidade para detecção viral em amostras clínicas. Implementação de técnicas de RT-PCR em tempo real e LAMP para triagem rápida.",
-    responsible: "Dr. João Pedro Santos",
-    funding: "FAPESP",
-    status: "Em andamento" as const,
-  },
-  {
-    title: "Epidemiologia Molecular de Arbovírus",
-    description:
-      "Vigilância epidemiológica de arbovírus circulantes na região, incluindo Dengue, Zika e Chikungunya. Análise da dinâmica de transmissão e identificação de fatores de risco associados a surtos epidêmicos.",
-    responsible: "Dra. Ana Carolina Oliveira",
-    funding: "Ministério da Saúde",
-    status: "Em andamento" as const,
-  },
-  {
-    title: "Resistência Viral a Antivirais",
-    description:
-      "Investigação de mecanismos moleculares de resistência a drogas antivirais e identificação de mutações associadas à falha terapêutica em pacientes com infecções virais crônicas.",
-    responsible: "Dr. Carlos Eduardo Mendes",
-    funding: "CAPES",
-    status: "Em andamento" as const,
-  },
-  {
-    title: "Vírus Respiratórios em Pediatria",
-    description:
-      "Estudo da etiologia viral de infecções respiratórias agudas em crianças, com caracterização molecular dos patógenos identificados e análise de coinfecções virais.",
-    responsible: "Dra. Ana Carolina Oliveira",
-    funding: "FAPESP",
-    status: "Concluído" as const,
-  },
-  {
-    title: "Desenvolvimento de Plataforma de Bioinformática",
-    description:
-      "Criação de pipeline computacional integrado para análise de dados de sequenciamento viral, incluindo montagem de genomas, anotação e análise filogenética automatizada.",
-    responsible: "Dr. João Pedro Santos",
-    funding: "CNPq",
-    status: "Concluído" as const,
-  },
-];
+import { researchService } from "@/services/research-service";
+import ProjectsList from "@/components/features/research/projects-list";
+import { Project } from "@/utils/types";
 
 const partners = [
   "Universidade de São Paulo (USP)",
@@ -64,10 +15,20 @@ const partners = [
   "Instituto Pasteur (França)",
 ];
 
-const ongoing = projects.filter((p) => p.status === "Em andamento");
-const concluded = projects.filter((p) => p.status === "Concluído");
+export default async function ResearchPage() {
+  let projects: Project[] = [];
+  let error = null;
 
-export default function ResearchPage() {
+  try {
+    projects = await researchService.getAllProjects();
+  } catch (err) {
+    error = err instanceof Error ? err.message : "Erro ao buscar projetos";
+    console.error("Erro ao buscar projetos:", err);
+  }
+
+  const ongoing = projects.filter((p) => p.status === "Em andamento");
+  const concluded = projects.filter((p) => p.status === "Concluído");
+
   return (
     <>
       {/* Hero */}
@@ -99,11 +60,7 @@ export default function ResearchPage() {
           </div>
 
           {/* All projects */}
-          <div className="flex flex-col gap-4">
-            {projects.map((project) => (
-              <ResearchCard key={project.title} {...project} />
-            ))}
-          </div>
+          <ProjectsList projects={projects} />
 
           {/* Collaborations */}
           <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4 mt-2">

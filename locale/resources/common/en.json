@@ -2,9 +2,22 @@
   "home": "Home",
   "about": "About",
   "member": "Member",
-  "research" : "Research",
-  "publication": "Publications",
+  "team": "Team",
+  "research": "Research",
+  "publications": "Publications",
   "equipments": "Equipments",
   "contact": "Contact",
-  "schedule": "Schedule"
+  "schedule": "Schedule",
+  "footer": {
+    "description": "A center of excellence in molecular virological research, committed to scientific innovation.",
+    "quickLinks": "Quick Links",
+    "links": {
+      "about": "About",
+      "team": "Team",
+      "research": "Projects",
+      "publications": "Publications"
+    },
+    "contact": "Contact",
+    "copyright": "Molecular Virology Laboratory"
+  }
 }

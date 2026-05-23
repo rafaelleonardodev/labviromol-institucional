@@ -1,66 +1,12 @@
-import { MemberCard } from "@/components/features/cards/member-card";
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import { Button } from "@/components/ui/button";
-import { Users } from "lucide-react";
-
-const members = [
-  {
-    name: "Dra. Maria Fernanda Silva",
-    role: "Coordenadora do Laboratório",
-    degree: "Doutorado em Microbiologia",
-    lattesUrl: "#",
-  },
-  {
-    name: "Dr. João Pedro Santos",
-    role: "Pesquisador Senior",
-    degree: "Doutorado em Biologia Molecular",
-    lattesUrl: "#",
-  },
-  {
-    name: "Dra. Ana Carolina Oliveira",
-    role: "Pesquisadora Associada",
-    degree: "Doutorado em Virologia",
-    lattesUrl: "#",
-  },
-  {
-    name: "Dr. Carlos Eduardo Mendes",
-    role: "Pesquisador Colaborador",
-    degree: "Doutorado em Bioquímica",
-    lattesUrl: "#",
-  },
-  {
-    name: "Me. Juliana Costa",
-    role: "Doutoranda",
-    degree: "Mestrado em Ciências Biológicas",
-    lattesUrl: "#",
-  },
-  {
-    name: "Me. Rafael Almeida",
-    role: "Doutorando",
-    degree: "Mestrado em Biotecnologia",
-    lattesUrl: "#",
-  },
-  {
-    name: "Biól. Fernanda Rodrigues",
-    role: "Mestranda",
-    degree: "Graduação em Ciências Biológicas",
-    lattesUrl: "#",
-  },
-  {
-    name: "Biól. Lucas Ferreira",
-    role: "Técnico de Laboratório",
-    degree: "Graduação em Biomedicina",
-    lattesUrl: "#",
-  },
-  {
-    name: "Biól. Mariana Souza",
-    role: "Iniciação Científica",
-    degree: "Graduanda em Ciências Biológicas",
-    lattesUrl: "#",
-  },
-];
+import { ArrowRight, Users } from "lucide-react";
+import { teamService } from "@/services/team-service";
+import TeamList from "@/components/features/team/team-list";
+import { Member } from "@/utils/types";
+import Link from "next/link";
 
 const opportunities = [
   "Iniciação Científica (alunos de graduação)",
@@ -69,7 +15,17 @@ const opportunities = [
   "Estágios técnicos",
 ];
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  let members: Member[] = [];
+  let error = null;
+
+  try {
+    members = await teamService.getAll();
+  } catch (err) {
+    error = err instanceof Error ? err.message : "Erro ao buscar membros";
+    console.error("Erro ao buscar membros:", err);
+  }
+
   return (
     <>
       {/* Hero */}
@@ -88,11 +44,7 @@ export default function TeamPage() {
       {/* Members Grid */}
       <Section size="md">
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {members.map((member) => (
-              <MemberCard key={member.name} {...member} />
-            ))}
-          </div>
+          <TeamList members={members} />
         </Container>
       </Section>
 
@@ -129,8 +81,11 @@ export default function TeamPage() {
             </div>
 
             <div className="pt-2">
-              <Button variant="secondary" size="default">
-                Entre em Contato
+              <Button asChild variant="secondary" size="default">
+                <Link href="/contact" className="flex gap-2">
+                  Entre em contato
+                  <ArrowRight />
+                </Link>
               </Button>
             </div>
           </div>

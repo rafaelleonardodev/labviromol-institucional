@@ -54,7 +54,6 @@ export default async function EquipmentDetailPage({ params }: Props) {
               rounded-xl overflow-hidden
               bg-muted border border-border
             ">
-              {/* Troque src pela URL real quando integrar com o backend */}
               {equipment.imageUrl ? (
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STORAGE_URL}${equipment.imageUrl}`}
@@ -125,7 +124,7 @@ export default async function EquipmentDetailPage({ params }: Props) {
             )}
 
             {/* CTA */}
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-3 pt-2 flex-col sm:flex-row">
               <Button variant="secondary">
                 Agendar uso
               </Button>

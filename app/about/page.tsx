@@ -91,8 +91,10 @@ export default function AboutPage() {
             <div
               className="
                grid
-               grid-cols-3
                gap-4
+               grid-cols-1 
+               sm:grid-cols-2 
+               md:grid-cols-3
               "
             >
               {activities.map((act, index) => {

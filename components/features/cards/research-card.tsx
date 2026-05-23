@@ -9,7 +9,7 @@ type ResearchCardProps = {
   description: string;
   responsible: string;
   funding: string;
-  status: "Em andamento" | "Concluído";
+  status: string;
   className?: string;
 };
 

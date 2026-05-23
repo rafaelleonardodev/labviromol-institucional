@@ -2,9 +2,21 @@
   "home": "Home",
   "about": "Sobre",
   "team": "Equipe",
-  "research" : "Pesquisa",
-  "publication": "Publicações",
+  "research": "Pesquisa",
+  "publications": "Publicações",
   "equipments": "Equipamentos",
   "contact": "Contato",
-  "schedule": "Agendar"
+  "schedule": "Agendar",
+  "footer": {
+    "description": "Centro de excelência em pesquisa virológica molecular, comprometido com a inovação científica.",
+    "quickLinks": "Links Rápidos",
+    "links": {
+      "about": "Sobre",
+      "team": "Equipe",
+      "research": "Projetos",
+      "publications": "Publicações"
+    },
+    "contact": "Contato",
+    "copyright": "Laboratório de Virologia Molecular"
+  }
 }

@@ -1,8 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
+  const { t } = useTranslation();
+
+  const quickLinks = [
+    { label: t("common.footer.links.about"), href: "/about" },
+    { label: t("common.footer.links.team"), href: "/team" },
+    { label: t("common.footer.links.research"), href: "/research" },
+    { label: t("common.footer.links.publications"), href: "/publications" },
+  ];
+
   return (
     <footer className="mt-20 border-t bg-background">
       <div className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3">
@@ -10,27 +20,21 @@ export function Footer() {
         {/* SOBRE */}
         <div className="space-y-3">
           <h3 className="font-heading text-lg font-semibold">
-            Laboratório de Virologia Molecular
+            {t("common.footer.copyright")}
           </h3>
           <p className="text-sm text-muted-foreground">
-            Centro de excelência em pesquisa virológica molecular,
-            comprometido com a inovação científica.
+            {t("common.footer.description")}
           </p>
         </div>
 
         {/* LINKS */}
         <div className="space-y-3">
           <h3 className="font-heading text-lg font-semibold">
-            Links Rápidos
+            {t("common.footer.quickLinks")}
           </h3>
 
           <ul className="space-y-2 text-sm">
-            {[
-              { label: "Sobre", href: "/sobre" },
-              { label: "Equipe", href: "/equipe" },
-              { label: "Projetos", href: "/pesquisa" },
-              { label: "Publicações", href: "/publicacoes" },
-            ].map((item) => (
+            {quickLinks.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -46,15 +50,16 @@ export function Footer() {
         {/* CONTATO */}
         <div className="space-y-3">
           <h3 className="font-heading text-lg font-semibold">
-            Contato
+            {t("common.footer.contact")}
           </h3>
 
           <div className="text-sm text-muted-foreground space-y-1">
-            <p>(00) 0000-0000</p>
-            <p>contato@virologia.edu.br</p>
+            <p>(+55) 41 3360-7950</p>
+            <p>labpesquisahcufpr@gmail.com</p>
             <p>
-              Universidade Federal<br />
-              Campus Universitário
+              Av. Agostinho Leão Junior, 108 - Alto da Glória<br />
+              Curitiba - PR<br />
+              CEP 80030-110
             </p>
           </div>
         </div>
@@ -62,7 +67,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border text-center py-4 text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Laboratório de Virologia Molecular
+        © {new Date().getFullYear()} {t("common.footer.copyright")}
       </div>
     </footer>
   );

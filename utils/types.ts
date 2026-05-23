@@ -8,6 +8,38 @@ export type Equipment = {
   imageUrl: string;
 }
 
+export type Member = {
+  id: string;
+  displayName: string;
+  position: string;
+  degreeLevel: string;
+  lattesUrl?: string;
+}
+
+export type Publication = {
+  id: string;
+  title: string;
+  authors: Author[];
+  publishedOn: string;
+  publicationDate: number;
+  doi: string;
+}
+
+export type Author = {
+  name: string;
+  order: string;
+}
+
+export type Project = {
+  id: string;
+  title: string;
+  status: string;
+  description: string;
+  researchLead: string;
+  partner: string;
+  createdAt: string;
+}
+
 export type ScheduleEquipment = {
   equipmentId: string;
   name: string;

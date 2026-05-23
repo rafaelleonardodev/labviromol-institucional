@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Languages } from "lucide-react";
@@ -74,14 +75,20 @@ export function Header() {
 
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary-500 rounded-md" />
+          <Image
+            src="/images/small-logo.png"
+            alt="Logo LabViroMol"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
           <span className="font-heading font-semibold text-lg">
             LabViroMol
           </span>
         </Link>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden lg:flex items-center gap-2">
           {navItems.map((item, index) => (
             <Button
               key={index}
@@ -96,7 +103,7 @@ export function Header() {
 
           {/* CTA */}
           <Button asChild className="ml-2 shadow-sm" size="sm">
-            <Link href="/schedule">Agendar</Link>
+            <Link href="/schedule">{t("common.schedule")}</Link>
           </Button>
           
           <LanguageSwitcher />
@@ -104,7 +111,7 @@ export function Header() {
         </nav>
 
         {/* MOBILE MENU */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <LanguageSwitcher />
 
           <Sheet>

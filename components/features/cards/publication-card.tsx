@@ -4,10 +4,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { BookOpen, Calendar, ExternalLink } from "lucide-react";
+import { Author } from "@/utils/types";
 
 type PublicationCardProps = {
   title: string;
-  authors: string;
+  authors: Author[];
   journal: string;
   year: number;
   doi: string;

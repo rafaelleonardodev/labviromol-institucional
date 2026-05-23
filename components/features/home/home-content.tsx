@@ -24,10 +24,10 @@ export function HomeContent() {
           <Typography variant="hero" as="h1">
             {t("home.hero.title")}
           </Typography>
-          <Typography variant="h3" as="h3" className="max-w-3xl">
+          <Typography variant="h3" as="h3" className="max-w-3xl text-justify sm:">
             {t("home.hero.subtitle")}
           </Typography>
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row">
             <Button asChild variant="secondary">
               <Link href="/schedule" className="flex gap-2">
                 <Calendar />
@@ -45,42 +45,53 @@ export function HomeContent() {
       </Section>
 
       <Section>
-        <Container className="flex gap-4 items-center align-center">
-          <IconCard
-            title={t("home.cards.team.title")}
-            cta={t("home.cards.team.cta")}
-            icon={<Users />}
-            href="/team"
-          >
-            <Typography variant="muted" as="p">
-              {t("home.cards.team.description")}
-            </Typography>
-          </IconCard>
-          <IconCard
-            icon={<FlaskConical />}
-            title={t("home.cards.research.title")}
-            cta={t("home.cards.research.cta")}
-            href="/research"
-          >
-            <Typography variant="muted" as="p">
-              {t("home.cards.research.description")}
-            </Typography>
-          </IconCard>
-          <IconCard
-            icon={<BookOpen />}
-            title={t("home.cards.publications.title")}
-            cta={t("home.cards.publications.cta")}
-            href="/publications"
-          >
-            <Typography variant="muted" as="p">
-              {t("home.cards.publications.description")}
-            </Typography>
-          </IconCard>
+        <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+          <div className="h-full">
+            <IconCard
+              title={t("home.cards.team.title")}
+              cta={t("home.cards.team.cta")}
+              icon={<Users />}
+              href="/team"
+              className="h-full"
+            >
+              <Typography variant="muted" as="p">
+                {t("home.cards.team.description")}
+              </Typography>
+            </IconCard>
+          </div>
+
+          <div className="h-full">
+            <IconCard
+              icon={<FlaskConical />}
+              title={t("home.cards.research.title")}
+              cta={t("home.cards.research.cta")}
+              href="/research"
+              className="h-full"
+            >
+              <Typography variant="muted" as="p">
+                {t("home.cards.research.description")}
+              </Typography>
+            </IconCard>
+          </div>
+
+          <div className="h-full">
+            <IconCard
+              icon={<BookOpen />}
+              title={t("home.cards.publications.title")}
+              cta={t("home.cards.publications.cta")}
+              href="/publications"
+              className="h-full"
+            >
+              <Typography variant="muted" as="p">
+                {t("home.cards.publications.description")}
+              </Typography>
+            </IconCard>
+          </div>
         </Container>
       </Section>
 
       <Section className="bg-primary-foreground">
-        <Container className="flex flex-col align-center items-center text-center gap-4">
+        <Container className="flex flex-col align-center items-center gap-4 text-justify sm:text-center">
           <div
             className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary"
             style={{ color: "oklch(0.98 0.01 170)" }}

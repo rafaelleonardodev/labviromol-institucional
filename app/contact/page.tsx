@@ -26,36 +26,32 @@ export default function ContactPage() {
 
             {/* Telefone */}
             <IconCard title="Telefone" icon={<Phone />}>
-              <p className="text-sm text-muted-foreground">(00) 0000-0000</p>
-              <p className="text-sm text-muted-foreground">Seg-Sex: 8h às 18h</p>
+              <p className="text-sm text-muted-foreground">(+55) 41 3360-7950</p>
+              <p className="text-sm text-muted-foreground">Seg-Sex: 9h às 16h</p>
             </IconCard>
 
             {/* Endereço */}
             <IconCard title="Endereço" icon={<MapPin />}>
               <p className="text-sm text-muted-foreground">
-                Universidade Federal<br />
-                Campus Universitário<br />
-                Prédio de Ciências Biológicas - Sala 305<br />
-                CEP 00000-000
+                Av. Agostinho Leão Junior, 108 - Alto da Glória<br />
+                Curitiba - PR<br />
+                CEP 80030-110
               </p>
             </IconCard>
 
             {/* E-mail */}
             <IconCard title="E-mail" icon={<Mail />}>
-              <p className="text-sm text-muted-foreground">contato@virologiamolecular.edu.br</p>
+              <p className="text-sm text-muted-foreground">labpesquisahcufpr@gmail.com</p>
               <p className="text-sm text-muted-foreground">Resposta em até 48 horas úteis</p>
             </IconCard>
 
             {/* Horário */}
             <IconCard title="Horário de Funcionamento" icon={<Clock />}>
               <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground font-medium">Segunda a Sexta:</strong> 8h às 18h
+                <strong className="text-foreground font-medium">Segunda a Sexta:</strong> 9h às 16h
               </p>
               <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground font-medium">Sábados:</strong> 8h às 12h
-              </p>
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground font-medium">Domingos e Feriados:</strong> Fechado
+                <strong className="text-foreground font-medium">Finais de semana e Feriados:</strong> Fechado
               </p>
             </IconCard>
 
