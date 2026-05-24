@@ -21,7 +21,7 @@ export default function ProjectsList({ projects }: Props): React.ReactNode {
           title={project.title}
           description={project.description}
           responsible={project.researchLead}
-          funding={project.funding}
+          partner={project.partnerName}
           status={project.status}
         />
       )}

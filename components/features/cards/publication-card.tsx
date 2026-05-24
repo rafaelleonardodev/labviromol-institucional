@@ -33,7 +33,9 @@ export function PublicationCard({
       </h3>
 
       {/* Authors */}
-      <p className="text-sm text-muted-foreground">{authors}</p>
+      <p className="text-sm text-muted-foreground">
+        {authors.map((author) => author.name).join(", ")}
+      </p>
 
       {/* Journal + Year */}
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">

@@ -3,7 +3,7 @@ import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users } from "lucide-react";
-import { teamService } from "@/services/team-service";
+import { researchService } from "@/services/research-service";
 import TeamList from "@/components/features/team/team-list";
 import { Member } from "@/utils/types";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export default async function TeamPage() {
   let error = null;
 
   try {
-    members = await teamService.getAll();
+    members = await researchService.getAllMembers();
   } catch (err) {
     error = err instanceof Error ? err.message : "Erro ao buscar membros";
     console.error("Erro ao buscar membros:", err);

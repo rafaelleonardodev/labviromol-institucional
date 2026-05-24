@@ -36,7 +36,7 @@ export type Project = {
   status: string;
   description: string;
   researchLead: string;
-  partner: string;
+  partnerName: string;
   createdAt: string;
 }
 

@@ -121,13 +121,13 @@ export function Header() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-64 p-6">
-              <nav className="flex flex-col gap-3">
+            <SheetContent side="right" className="w-64 p-6 items-center">
+              <nav className="flex flex-col gap-3 max-w-[210px] w-full">
                 {navItems.map((item, index) => (
                   <Button
                     key={index}
-                    variant={pathname === item.href ? "primary" : "ghost"}
-                    className="data-[active=true]:bg-default/10"
+                    variant={pathname === item.href ? "primary" : "outline"}
+                    className="data-[active=true]:bg-default/10 w-full"
                     asChild
                   >
                     <Link href={item.href}>{item.label}</Link>

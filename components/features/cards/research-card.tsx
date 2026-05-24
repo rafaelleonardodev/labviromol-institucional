@@ -8,7 +8,7 @@ type ResearchCardProps = {
   title: string;
   description: string;
   responsible: string;
-  funding: string;
+  partner: string;
   status: string;
   className?: string;
 };
@@ -17,7 +17,7 @@ export function ResearchCard({
   title,
   description,
   responsible,
-  funding,
+  partner,
   status,
   className,
 }: ResearchCardProps) {
@@ -61,7 +61,7 @@ export function ResearchCard({
           <Building2 className="h-3.5 w-3.5 shrink-0" />
           <span>
             <strong className="text-foreground font-medium">Fomento:</strong>{" "}
-            {funding}
+            {partner}
           </span>
         </span>
       </div>
