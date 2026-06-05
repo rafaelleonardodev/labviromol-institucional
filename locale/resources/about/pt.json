@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Sobre o Laboratório",
+    "subtitle": "Conheça nossa história, missão e áreas de atuação no campo da virologia molecular"
+  },
+  "mission": {
+    "title": "Missão",
+    "description": "Desenvolver pesquisa científica de excelência na área de virologia molecular, contribuindo para o avanço do conhecimento, formação de recursos humanos qualificados e desenvolvimento de soluções inovadoras para diagnóstico e controle de doenças virais."
+  },
+  "vision": {
+    "title": "Visão",
+    "description": "Ser referência nacional e internacional em pesquisa virológica molecular, reconhecido pela qualidade científica, inovação tecnológica e contribuição para a saúde pública."
+  },
+  "history": {
+    "title": "Histórico",
+    "paragraph1": "Fundado em 2010, o Laboratório de Virologia Molecular surgiu da necessidade de estabelecer um centro de referência em pesquisa virológica na região. Desde sua criação, o laboratório tem se destacado pela produção científica de qualidade e pela formação de profissionais altamente capacitados.",
+    "paragraph2": "Ao longo dos anos, consolidamos parcerias com instituições nacionais e internacionais, expandimos nossa infraestrutura laboratorial e ampliamos nossas linhas de pesquisa. Hoje, contamos com equipamentos de última geração e uma equipe multidisciplinar dedicada ao estudo de vírus de importância médica e veterinária.",
+    "paragraph3": "Nossa contribuição inclui a publicação de mais de 100 artigos científicos em periódicos de alto impacto, formação de dezenas de mestres e doutores, e desenvolvimento de metodologias diagnósticas implementadas em serviços de saúde."
+  },
+  "biosafety": {
+    "title": "Biossegurança e Níveis de Contenção",
+    "description": "O laboratório opera sob rigorosos padrões de biossegurança, seguindo as diretrizes nacionais e internacionais. Possuímos áreas classificadas como NB2 (Nível de Biossegurança 2), adequadas para manipulação de agentes de risco moderado.",
+    "safetyRulesTitle": "Normas de Segurança Implementadas:",
+    "rules": {
+      "ppe": "Uso obrigatório de EPIs (jaleco, luvas, máscaras, óculos de proteção)",
+      "cabinet": "Cabines de segurança biológica Classe II para manipulação de material infectado",
+      "autoclave": "Autoclavagem de todo material biológico antes do descarte",
+      "training": "Treinamento periódico da equipe em procedimentos de biossegurança",
+      "contingency": "Plano de contingência para acidentes biológicos",
+      "access": "Controle de acesso restrito a pessoal autorizado",
+      "records": "Registros detalhados de todas as atividades laboratoriais"
+    },
+    "footer": "Todos os membros da equipe recebem treinamento específico em biossegurança antes de iniciar suas atividades no laboratório. O cumprimento das normas é constantemente monitorado pela Comissão Interna de Biossegurança."
+  },
+  "activityAreas": {
+    "title": "Áreas de Atuação",
+    "items": {
+      "molecularDiagnosis": {
+        "title": "Diagnóstico Molecular",
+        "description": "Desenvolvimento e aplicação de técnicas moleculares avançadas para detecção e caracterização de vírus em amostras clínicas e ambientais."
+      },
+      "viralEpidemiology": {
+        "title": "Epidemiologia Viral",
+        "description": "Investigação da distribuição, dinâmica de transmissão e fatores de risco associados a infecções virais em populações humanas e animais."
+      },
+      "molecularBiology": {
+        "title": "Biologia Molecular de Vírus",
+        "description": "Estudo dos mecanismos moleculares de replicação, patogênese e evolução viral, incluindo análise de genomas completos e variabilidade genética."
+      },
+      "technologicalInnovation": {
+        "title": "Inovação Tecnológica",
+        "description": "Desenvolvimento de novas ferramentas diagnósticas, kits moleculares e métodos de triagem para aplicação em saúde pública e pesquisa."
+      },
+      "academicTraining": {
+        "title": "Formação Acadêmica",
+        "description": "Capacitação de alunos de graduação e pós-graduação em técnicas de virologia molecular e metodologia científica."
+      },
+      "scientificCollaborations": {
+        "title": "Colaborações Científicas",
+        "description": "Parcerias com instituições nacionais e internacionais para desenvolvimento de projetos colaborativos e intercâmbio científico."
+      }
+    }
+  }
+}

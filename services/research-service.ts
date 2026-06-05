@@ -1,4 +1,4 @@
-import { Member, Project, Publication } from "@/utils/types";
+import { Member, Partner, Project, Publication } from "@/utils/types";
 import { api } from "./api/client";
 
 export const researchService = {
@@ -10,4 +10,6 @@ export const researchService = {
     api.get<Member[]>("research/researchers", { tags: ["researchers"], revalidate: 0 }),
   getById: (id: string) =>
     api.get<Project>(`research/projects/${id}`, { tags: [`project-${id}`], revalidate: 0 }),
+  getAllPartners: () =>
+    api.get<Partner[]>("research/partners", { tags: ["partners"], revalidate: 0}),
 };

@@ -1,0 +1,26 @@
+{
+  "title": "Equipamentos",
+  "description": "Infraestrutura moderna e equipamentos de ponta para pesquisa em virologia molecular",
+  "access": {
+    "title": "Acesso aos Equipamentos",
+    "description": "Os equipamentos do laboratório estão disponíveis para uso por pesquisadores credenciados, alunos de pós-graduação e colaboradores externos mediante aprovação.",
+    "requirementsTitle": "Requisitos para Utilização:",
+    "requirements": {
+      "training": "Treinamento específico para operação do equipamento",
+      "schedule": "Agendamento prévio através do sistema online",
+      "advisor": "Aprovação do professor orientador (para estudantes)",
+      "agreement": "Aceite do Termo de Responsabilidade",
+      "maintenance": "Compromisso de manutenção e limpeza após uso"
+    },
+    "scheduleText": "Para agendar o uso de equipamentos, acesse nossa",
+    "scheduleLink": "página de agendamentos"
+  },
+  "back": "Voltar para equipamentos",
+  "details": {
+    "title": "Especificações",
+    "description": "Descrição",
+    "model": "Modelo",
+    "brand": "Marca",
+    "code": "Código"
+  }
+}

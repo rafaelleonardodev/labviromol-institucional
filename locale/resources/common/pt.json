@@ -18,5 +18,13 @@
     },
     "contact": "Contato",
     "copyright": "Laboratório de Virologia Molecular"
-  }
+  },
+  "viewLess": "Mostrar menos",
+  "viewMore": "Ver mais",
+  "viewDetails": "Ver detalhes",
+  "image": {
+    "alt": "Imagem do {{object}} {{name}}",
+    "unavailable": "Sem imagem disponível"
+  },
+  "equipment": "Equipamento"
 }

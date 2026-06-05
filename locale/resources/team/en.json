@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "Our Team",
+    "subtitle": "Meet the researchers, students, and professionals dedicated to scientific excellence in molecular virology"
+  },
+  "joinTeam": {
+    "title": "Join Our Team",
+    "description": "We are always looking for talented researchers and motivated students to join our team. If you are interested in molecular virology and would like to be part of a dynamic and collaborative scientific environment, contact us.",
+    "opportunitiesTitle": "Available opportunities:",
+    "contact": "Contact us",
+    "opportunities": {
+      "undergraduateResearch": "Undergraduate Research Program",
+      "mastersPhd": "Master's and PhD Programs",
+      "postdoctoral": "Postdoctoral Positions",
+      "technicalInternship": "Technical Internships"
+    }
+  },
+  "degreeLevel": {
+    "Undergraduate": "Undergraduate Student",
+    "Specialization": "Specialist",
+    "Masters": "Master's Degree",
+    "Doctorate": "Doctorate",
+    "PostDoctorate": "Postdoctoral Researcher"
+  },
+  "viewLattesCurriculum": "View Lattes Curriculum"
+}

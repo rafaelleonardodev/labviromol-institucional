@@ -1,1 +1,60 @@
-{}
+{
+  "title": "Equipment Scheduling",
+  "description": "Schedule the use of laboratory equipment by completing the form below",
+  "notice": "Scheduling is subject to availability and approval. You will receive a confirmation email within 24 business hours.",
+  "success": {
+    "title": "Request submitted!",
+    "description": "Your request has been received. You will receive a confirmation email within 24 business hours.",
+    "newSchedule": "New scheduling request"
+  },
+  "sections": {
+    "equipment": {
+      "title": "Equipment and Schedule",
+      "description": "Select the equipment to be used and your preferred schedule",
+      "requestedEquipments": "Requested equipment",
+      "requestedEquipmentsDescription": "Add all equipment that will be used during the session.",
+      "selectEquipment": "Select equipment",
+      "addEquipment": "Add equipment",
+      "sessionTime": "Session schedule",
+      "date": "Date",
+      "start": "Start",
+      "end": "End"
+    },
+    "requester": {
+      "title": "Requester Information",
+      "description": "Contact information and institutional affiliation",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "institution": "Institution / Program",
+      "institutionPlaceholder": "e.g. MSc in Microbiology – UFPR",
+      "advisor": "Academic Advisor",
+      "advisorPlaceholder": "Advisor's full name",
+      "advisorDescription": "Required for students"
+    },
+    "project": {
+      "title": "Project Information",
+      "description": "Details about your research and intended use",
+      "projectTitle": "Project / Research Title",
+      "projectTitlePlaceholder": "Your project title",
+      "purpose": "Purpose of Use",
+      "purposePlaceholder": "Briefly describe the purpose of using the equipment...",
+      "purposeDescription": "Minimum 20 characters"
+    }
+  },
+  "terms": {
+    "accept": "I have read and accept the Laboratory Usage Responsibility Agreement",
+    "description": "I declare that I am aware of the biosafety regulations and take responsibility for the proper use of equipment and materials, as well as compliance with laboratory protocols.",
+    "submit": "Request Scheduling"
+  },
+  "importantInfo": {
+    "title": "Important Information",
+    "advanceNotice": "Scheduling must be made at least 48 hours in advance",
+    "training": "Completion of specific training for the requested equipment is mandatory",
+    "absence": "In case of absence without justification, the user will be suspended for 30 days",
+    "usageTime": "Equipment usage time may be limited according to availability and demand",
+    "materials": "Materials and reagents are the user's responsibility unless otherwise agreed",
+    "damage": "Any damage caused to the equipment will be the user's responsibility"
+  }
+}

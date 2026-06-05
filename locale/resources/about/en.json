@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "About the Laboratory",
+    "subtitle": "Learn about our history, mission, and areas of expertise in molecular virology"
+  },
+  "mission": {
+    "title": "Mission",
+    "description": "To develop high-quality scientific research in molecular virology, contributing to the advancement of knowledge, the training of qualified professionals, and the development of innovative solutions for the diagnosis and control of viral diseases."
+  },
+  "vision": {
+    "title": "Vision",
+    "description": "To be a national and international reference in molecular virology research, recognized for scientific excellence, technological innovation, and contributions to public health."
+  },
+  "history": {
+    "title": "History",
+    "paragraph1": "Founded in 2010, the Molecular Virology Laboratory emerged from the need to establish a regional reference center for virology research. Since its creation, the laboratory has stood out for its high-quality scientific production and the training of highly qualified professionals.",
+    "paragraph2": "Over the years, we have established partnerships with national and international institutions, expanded our laboratory infrastructure, and broadened our research lines. Today, we have state-of-the-art equipment and a multidisciplinary team dedicated to studying viruses of medical and veterinary importance.",
+    "paragraph3": "Our contributions include publishing more than 100 scientific articles in high-impact journals, training dozens of master's and doctoral graduates, and developing diagnostic methodologies implemented in healthcare services."
+  },
+  "biosafety": {
+    "title": "Biosafety and Containment Levels",
+    "description": "The laboratory operates under strict biosafety standards, following national and international guidelines. We maintain NB2 (Biosafety Level 2) facilities suitable for handling moderate-risk biological agents.",
+    "safetyRulesTitle": "Implemented Safety Standards:",
+    "rules": {
+      "ppe": "Mandatory use of PPE (lab coat, gloves, masks, and safety goggles)",
+      "cabinet": "Class II biological safety cabinets for handling infectious materials",
+      "autoclave": "Autoclaving all biological materials before disposal",
+      "training": "Regular staff training in biosafety procedures",
+      "contingency": "Contingency plan for biological accidents",
+      "access": "Restricted access limited to authorized personnel",
+      "records": "Detailed records of all laboratory activities"
+    },
+    "footer": "All team members receive specific biosafety training before beginning their laboratory activities. Compliance with safety standards is continuously monitored by the Internal Biosafety Committee."
+  },
+  "activityAreas": {
+    "title": "Areas of Expertise",
+    "items": {
+      "molecularDiagnosis": {
+        "title": "Molecular Diagnostics",
+        "description": "Development and application of advanced molecular techniques for the detection and characterization of viruses in clinical and environmental samples."
+      },
+      "viralEpidemiology": {
+        "title": "Viral Epidemiology",
+        "description": "Investigation of the distribution, transmission dynamics, and risk factors associated with viral infections in human and animal populations."
+      },
+      "molecularBiology": {
+        "title": "Molecular Virology",
+        "description": "Study of the molecular mechanisms of viral replication, pathogenesis, and evolution, including whole-genome analysis and genetic variability."
+      },
+      "technologicalInnovation": {
+        "title": "Technological Innovation",
+        "description": "Development of new diagnostic tools, molecular kits, and screening methods for public health and research applications."
+      },
+      "academicTraining": {
+        "title": "Academic Training",
+        "description": "Training undergraduate and graduate students in molecular virology techniques and scientific methodology."
+      },
+      "scientificCollaborations": {
+        "title": "Scientific Collaborations",
+        "description": "Partnerships with national and international institutions to develop collaborative projects and scientific exchange programs."
+      }
+    }
+  }
+}

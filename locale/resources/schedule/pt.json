@@ -1,1 +1,60 @@
-{}
+{
+  "title": "Agendamento de Equipamentos",
+  "description": "Agende o uso de equipamentos do laboratório preenchendo o formulário abaixo",
+  "notice": "O agendamento está sujeito à disponibilidade e aprovação. Você receberá uma confirmação por e-mail em até 24 horas úteis.",
+  "success": {
+    "title": "Solicitação enviada!",
+    "description": "Sua solicitação foi recebida. Você receberá uma confirmação por e-mail em até 24 horas úteis.",
+    "newSchedule": "Novo agendamento"
+  },
+  "sections": {
+    "equipment": {
+      "title": "Equipamentos e Horário",
+      "description": "Selecione os equipamentos que serão utilizados e o horário desejado",
+      "requestedEquipments": "Equipamentos solicitados",
+      "requestedEquipmentsDescription": "Adicione todos os equipamentos que serão utilizados na sessão.",
+      "selectEquipment": "Selecione o equipamento",
+      "addEquipment": "Adicionar equipamento",
+      "sessionTime": "Horário da sessão",
+      "date": "Data",
+      "start": "Início",
+      "end": "Término"
+    },
+    "requester": {
+      "title": "Dados do Solicitante",
+      "description": "Informações de contato e vinculação institucional",
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "Seu nome completo",
+      "email": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "institution": "Instituição / Curso",
+      "institutionPlaceholder": "Ex: Mestrado em Microbiologia – UFPR",
+      "advisor": "Professor Orientador",
+      "advisorPlaceholder": "Nome completo do orientador",
+      "advisorDescription": "Campo obrigatório para estudantes"
+    },
+    "project": {
+      "title": "Informações do Projeto",
+      "description": "Detalhes sobre sua pesquisa e finalidade do uso",
+      "projectTitle": "Título do Projeto / Pesquisa",
+      "projectTitlePlaceholder": "Título do seu projeto",
+      "purpose": "Finalidade do Uso",
+      "purposePlaceholder": "Descreva brevemente o objetivo do uso do equipamento...",
+      "purposeDescription": "Mínimo de 20 caracteres"
+    }
+  },
+  "terms": {
+    "accept": "Li e aceito o Termo de Responsabilidade de Uso do Laboratório",
+    "description": "Declaro estar ciente das normas de biossegurança, responsabilizando-me pelo uso adequado dos equipamentos e materiais, bem como pelo cumprimento dos protocolos estabelecidos pelo laboratório.",
+    "submit": "Solicitar Agendamento"
+  },
+  "importantInfo": {
+    "title": "Informações Importantes",
+    "advanceNotice": "O agendamento deve ser feito com pelo menos 48 horas de antecedência",
+    "training": "É obrigatório ter realizado o treinamento específico para o equipamento solicitado",
+    "absence": "Em caso de falta sem justificativa, o usuário ficará suspenso por 30 dias",
+    "usageTime": "O tempo de uso será limitado conforme disponibilidade e demanda",
+    "materials": "Materiais e reagentes são de responsabilidade do usuário, salvo combinação prévia",
+    "damage": "Qualquer dano causado ao equipamento será de responsabilidade do usuário"
+  }
+}

@@ -3,17 +3,18 @@
 import List from "@/components/common/list/list";
 import { PublicationCard } from "@/components/features/cards/publication-card";
 import { Publication } from "@/utils/types";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   publications: Publication[];
 };
 
 export default function PublicationsList({ publications }: Props): React.ReactNode {
+  const {t} = useTranslation();
   return (
     <List
       list={publications}
       showLimit={6}
-      buttonText="Ver mais"
       listingStyle="flex flex-col gap-4"
       renderItem={(publication) => (
         <PublicationCard

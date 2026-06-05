@@ -13,7 +13,6 @@ export default function ProjectsList({ projects }: Props): React.ReactNode {
     <List
       list={projects}
       showLimit={6}
-      buttonText="Ver mais"
       listingStyle="flex flex-col gap-4"
       renderItem={(project) => (
         <ResearchCard

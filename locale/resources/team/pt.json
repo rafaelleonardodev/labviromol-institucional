@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "Nossa Equipe",
+    "subtitle": "Conheça os pesquisadores, estudantes e profissionais dedicados à excelência científica em virologia molecular"
+  },
+  "joinTeam": {
+    "title": "Junte-se à Nossa Equipe",
+    "description": "Estamos sempre em busca de pesquisadores talentosos e estudantes motivados para integrar nossa equipe. Se você tem interesse em virologia molecular e deseja fazer parte de um ambiente científico dinâmico e colaborativo, entre em contato conosco.",
+    "opportunitiesTitle": "Oportunidades disponíveis:",
+    "contact": "Entre em contato",
+    "opportunities": {
+      "undergraduateResearch": "Iniciação Científica (alunos de graduação)",
+      "mastersPhd": "Mestrado e Doutorado (via processo seletivo do programa de pós-graduação)",
+      "postdoctoral": "Pós-Doutorado (com bolsa ou colaboração)",
+      "technicalInternship": "Estágios técnicos"
+    }
+  },
+  "degreeLevel": {
+    "Undergraduate": "Graduando",
+    "Specialization": "Especialista",
+    "Masters": "Mestre",
+    "Doctorate": "Doutor",
+    "PostDoctorate": "Pós-Doutor"
+  },
+  "viewLattesCurriculum": "Ver Currículo Lattes"
+}

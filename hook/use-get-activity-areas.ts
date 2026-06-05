@@ -1,37 +1,35 @@
 type Activity = {
-  area: string;
-  description: string;
+  areaKey: string;
+  descriptionKey: string;
 }
 
 const useGetActivityAreas = (): Activity[] => {
-  const activites: Activity[] = [
+  return [
     {
-      area: "Diagnóstico Molecular",
-      description: "Desenvolvimento e aplicação de técnicas moleculares avançadas para detecção e caracterização de vírus em amostras clínicas e ambientais."
+      areaKey: "about.activityAreas.items.molecularDiagnosis.title",
+      descriptionKey: "about.activityAreas.items.molecularDiagnosis.description"
     },
     {
-      area: "Epidemiologia Viral",
-      description: "Investigação da distribuição, dinâmica de transmissão e fatores de risco associados a infecções virais em populações humanas e animais."
+      areaKey: "about.activityAreas.items.viralEpidemiology.title",
+      descriptionKey: "about.activityAreas.items.viralEpidemiology.description"
     },
     {
-      area: "Biologia Molecular de Vírus",
-      description: "Estudo dos mecanismos moleculares de replicação, patogênese e evolução viral, incluindo análise de genomas completos e variabilidade genética."
+      areaKey: "about.activityAreas.items.molecularBiology.title",
+      descriptionKey: "about.activityAreas.items.molecularBiology.description"
     },
     {
-      area: "Inovação Tecnológica",
-      description: "Desenvolvimento de novas ferramentas diagnósticas, kits moleculares e métodos de triagem para aplicação em saúde pública e pesquisa."
+      areaKey: "about.activityAreas.items.technologicalInnovation.title",
+      descriptionKey: "about.activityAreas.items.technologicalInnovation.description"
     },
     {
-      area: "Formação Acadêmica",
-      description: "Capacitação de alunos de graduação e pós-graduação em técnicas de virologia molecular e metodologia científica."
+      areaKey: "about.activityAreas.items.academicTraining.title",
+      descriptionKey: "about.activityAreas.items.academicTraining.description"
     },
     {
-      area: "Colaborações Científicas",
-      description: "Parcerias com instituições nacionais e internacionais para desenvolvimento de projetos colaborativos e intercâmbio científico."
+      areaKey: "about.activityAreas.items.scientificCollaborations.title",
+      descriptionKey: "about.activityAreas.items.scientificCollaborations.description"
     }
   ];
-
-  return activites;
-}
+};
 
 export default useGetActivityAreas;

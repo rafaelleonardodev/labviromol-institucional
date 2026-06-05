@@ -3,11 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Props<T> = {
   list: T[];
   showLimit: number;
-  buttonText: string;
+  buttonText?: string;
   renderItem: (item: T) => React.ReactNode;
   listingStyle?: string;
 };
@@ -24,6 +25,8 @@ export default function List<T>({
   const hasMore = list.length > showLimit;
 
   const visible = showAll ? list : list.slice(0, showLimit);
+
+  const {t} = useTranslation();
 
   return (
     <div className="flex flex-col gap-6">
@@ -42,12 +45,12 @@ export default function List<T>({
             {showAll ? (
               <>
                 <ChevronUp className="h-4 w-4" />
-                Mostrar menos
+                {t("common.viewLess")}
               </>
             ) : (
               <>
                 <ChevronDown className="h-4 w-4" />
-                {buttonText}
+                {buttonText ? buttonText : t("common.viewMore")}
               </>
             )}
           </Button>

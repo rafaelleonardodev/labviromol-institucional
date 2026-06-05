@@ -4,11 +4,14 @@ import Link from "next/link";
 import { GraduationCap, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
+import { getDegreeLevelLabel } from "@/utils/degree-level";
+import { DegreeLevel } from "@/utils/enums";
 
 type MemberCardProps = {
   name: string;
   role: string;
-  degree: string;
+  degree: DegreeLevel;
   lattesUrl?: string;
   className?: string;
 };
@@ -20,6 +23,7 @@ export function MemberCard({
   lattesUrl = "#",
   className,
 }: MemberCardProps) {
+  const {t} = useTranslation();
   return (
     <Card
       className={cn(
@@ -55,7 +59,7 @@ export function MemberCard({
           {name}
         </h3>
         <p className="text-sm text-muted-foreground">{role}</p>
-        <p className="text-sm text-muted-foreground">{degree}</p>
+        <p className="text-sm text-muted-foreground">{getDegreeLevelLabel(degree, t)}</p>
       </div>
 
       {/* Lattes CTA */}
@@ -65,7 +69,7 @@ export function MemberCard({
         rel="noopener noreferrer"
         className="mt-auto flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
       >
-        Ver Currículo Lattes
+        {t("team.viewLattesCurriculum")}
         <ExternalLink className="h-3.5 w-3.5" />
       </Link>
     </Card>

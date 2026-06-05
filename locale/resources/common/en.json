@@ -19,5 +19,13 @@
     },
     "contact": "Contact",
     "copyright": "Molecular Virology Laboratory"
-  }
+  },
+  "viewLess": "View less",
+  "viewMore": "View more",
+  "viewDetails": "View details",
+  "image": {
+    "alt": "{{objetc}} image: {{name}}",
+    "unavailable": "No image available"
+  },
+  "equipment": "Equipment"
 }

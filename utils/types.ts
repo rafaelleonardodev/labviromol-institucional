@@ -1,3 +1,5 @@
+import { DegreeLevel, ProjectStatus } from "./enums";
+
 export type Equipment = {
   id: string;
   name: string;
@@ -12,7 +14,7 @@ export type Member = {
   id: string;
   displayName: string;
   position: string;
-  degreeLevel: string;
+  degreeLevel: DegreeLevel;
   lattesUrl?: string;
 }
 
@@ -33,7 +35,7 @@ export type Author = {
 export type Project = {
   id: string;
   title: string;
-  status: string;
+  status: ProjectStatus;
   description: string;
   researchLead: string;
   partnerName: string;
@@ -65,4 +67,10 @@ export type CreateSchedule = {
   projectTitle: string;
   description: string;
   equipments: ScheduleEquipment[];
+}
+
+export type Partner = {
+  id: string;
+  name: string;
+  createdAt: string;
 }

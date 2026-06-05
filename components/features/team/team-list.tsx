@@ -3,17 +3,18 @@
 import List from "@/components/common/list/list";
 import { MemberCard } from "@/components/features/cards/member-card";
 import { Member } from "@/utils/types";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   members: Member[];
 };
 
 export default function  TeamList({ members }: Props): React.ReactNode {
+  const {t} = useTranslation();
   return (
     <List
       list={members}
       showLimit={9}
-      buttonText="Ver mais"
       listingStyle="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
       renderItem={(member) => (
         <MemberCard

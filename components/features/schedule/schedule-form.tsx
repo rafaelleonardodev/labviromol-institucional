@@ -27,6 +27,7 @@ import {
 
 import { useScheduleForm } from "./use-schedule-form";
 import { Equipment } from "@/utils/types";
+import { TFunction } from "i18next";
 
 /**
  * FormSection: Componente para criar seções do formulário com ícone e descrição
@@ -64,10 +65,12 @@ function FormSection({
 
 type ScheduleFormProps = {
   equipmentsOptions: Equipment[];
+  t: TFunction
 };
 
 export function ScheduleForm({ 
-  equipmentsOptions
+  equipmentsOptions,
+  t
 }: ScheduleFormProps) {
   const {
     form,
@@ -86,16 +89,16 @@ export function ScheduleForm({
           <CalendarDays className="h-7 w-7 text-secondary" />
         </div>
         <h3 className="text-2xl font-semibold">
-          Solicitação enviada!
+          {t("schedule.success.title")}
         </h3>
         <p className="text-muted-foreground max-w-md">
-          Sua solicitação foi recebida. Você receberá uma confirmação por e-mail em até 24 horas úteis.
+          {t("schedule.success.description")}
         </p>
         <Button
           variant="outline"
           onClick={resetForm}
         >
-          Novo agendamento
+          {t("schedule.success.newSchedule")}
         </Button>
       </Card>
     );
@@ -108,16 +111,16 @@ export function ScheduleForm({
         <form id="schedule-form-equipment" className="space-y-6">
           <FormSection 
             icon={<FlaskConical className="h-5 w-5 text-primary" />}
-            label="Equipamentos e Horário"
-            description="Selecione os equipamentos que serão utilizados e o horário desejado"
+            label={t("schedule.sections.equipment.title")}
+            description={t("schedule.sections.equipment.description")}
           >
             <FieldSet className="space-y-3">
               <div className="space-y-2">
                 <FieldLegend variant="label" className="text-sm font-medium">
-                  Equipamentos solicitados
+                  {t("schedule.sections.equipment.requestedEquipments")}
                 </FieldLegend>
                 <FieldDescription className="text-xs">
-                  Adicione todos os equipamentos que serão utilizados na sessão.
+                  {t("schedule.sections.equipment.requestedEquipmentsDescription")}
                 </FieldDescription>
               </div>
 
@@ -144,7 +147,7 @@ export function ScheduleForm({
                               aria-invalid={fieldState.invalid} 
                               className="flex-1 border-primary/20 border-2"
                             >
-                              <SelectValue placeholder="Selecione o equipamento" />
+                              <SelectValue placeholder={t("schedule.sections.equipment.selectEquipment")} />
                             </SelectTrigger>
                             <SelectContent className="bg-card border border-primary/20 shadow-md z-50">
                               {equipmentsOptions.map((eq) => (
@@ -188,12 +191,12 @@ export function ScheduleForm({
                 onClick={() => append({ equipmentId: "", name: "" })}
               >
                 <Plus className="h-4 w-4" />
-                Adicionar equipamento
+                {t("schedule.sections.equipment.addEquipment")}
               </Button>
             </FieldSet>
 
             <div className="pt-4 border-t border-border">
-              <p className="text-sm font-medium text-foreground mb-4">Horário da sessão</p>
+              <p className="text-sm font-medium text-foreground mb-4">{t("schedule.sections.equipment.sessionTime")}</p>
               <FieldGroup className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                 <Controller
                   name="scheduling.date"
@@ -202,7 +205,7 @@ export function ScheduleForm({
                     <Field data-invalid={fieldState.invalid}>
                       <FieldLabel htmlFor="scheduling-date" className="flex items-center gap-1.5">
                         <CalendarDays className="h-3.5 w-3.5" />
-                        Data
+                        {t("schedule.sections.equipment.date")}
                       </FieldLabel>
                       <Input 
                         {...field} 
@@ -222,7 +225,7 @@ export function ScheduleForm({
                     <Field data-invalid={fieldState.invalid}>
                       <FieldLabel htmlFor="scheduling-start" className="flex items-center gap-1.5">
                         <Clock className="h-3.5 w-3.5" />
-                        Início
+                        {t("schedule.sections.equipment.start")}
                       </FieldLabel>
                       <Input 
                         {...field} 
@@ -242,7 +245,7 @@ export function ScheduleForm({
                     <Field data-invalid={fieldState.invalid}>
                       <FieldLabel htmlFor="scheduling-end" className="flex items-center gap-1.5">
                         <Clock className="h-3.5 w-3.5" />
-                        Término
+                        {t("schedule.sections.equipment.end")}
                       </FieldLabel>
                       <Input 
                         {...field} 
@@ -265,8 +268,8 @@ export function ScheduleForm({
       <Card className="p-8 lg:p-10">
         <FormSection 
           icon={<User className="h-5 w-5 text-primary" />}
-          label="Dados do Solicitante"
-          description="Informações de contato e vinculação institucional"
+          label={t("schedule.sections.requester.title")}
+          description={t("schedule.sections.requester.description")}
         >
           <FieldGroup className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <Controller
@@ -274,11 +277,11 @@ export function ScheduleForm({
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="scheduler-name">Nome Completo</FieldLabel>
+                  <FieldLabel htmlFor="scheduler-name">{t("schedule.sections.requester.fullName")}</FieldLabel>
                   <Input 
                     {...field} 
                     id="scheduler-name" 
-                    placeholder="Seu nome completo" 
+                    placeholder={t("schedule.sections.requester.fullNamePlaceholder")} 
                     aria-invalid={fieldState.invalid}
                     className="border-primary/20 border-2"
                   />
@@ -291,12 +294,12 @@ export function ScheduleForm({
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="scheduler-email">E-mail</FieldLabel>
+                  <FieldLabel htmlFor="scheduler-email">{t("schedule.sections.requester.email")}</FieldLabel>
                   <Input 
                     {...field} 
                     id="scheduler-email" 
                     type="email" 
-                    placeholder="seu@email.com" 
+                    placeholder={t("schedule.sections.requester.emailPlaceholder")} 
                     aria-invalid={fieldState.invalid}
                     className="border-primary/20 border-2"
                   />
@@ -311,11 +314,11 @@ export function ScheduleForm({
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="scheduler-course">Instituição / Curso</FieldLabel>
+                <FieldLabel htmlFor="scheduler-course">{t("schedule.sections.requester.institution")}</FieldLabel>
                 <Input 
                   {...field} 
                   id="scheduler-course" 
-                  placeholder="Ex: Mestrado em Microbiologia – UFXX" 
+                  placeholder={t("schedule.sections.requester.institutionPlaceholder")} 
                   aria-invalid={fieldState.invalid}
                   className="border-primary/20 border-2"
                 />
@@ -331,16 +334,16 @@ export function ScheduleForm({
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor="advisor-professor" className="flex items-center gap-1.5">
                   <GraduationCap className="h-3.5 w-3.5" />
-                  Professor Orientador
+                  {t("schedule.sections.requester.advisor")}
                 </FieldLabel>
                 <Input 
                   {...field} 
                   id="advisor-professor" 
-                  placeholder="Nome completo do orientador" 
+                  placeholder={t("schedule.sections.requester.advisorPlaceholder")} 
                   aria-invalid={fieldState.invalid}
                   className="border-primary/20 border-2"
                 />
-                <FieldDescription>Campo obrigatório para estudantes</FieldDescription>
+                <FieldDescription>{t("schedule.sections.requester.advisorDescription")}</FieldDescription>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </Field>
             )}
@@ -352,19 +355,19 @@ export function ScheduleForm({
       <Card className="p-8 lg:p-10">
         <FormSection 
           icon={<FileText className="h-5 w-5 text-primary" />}
-          label="Informações do Projeto"
-          description="Detalhes sobre sua pesquisa e finalidade do uso"
+          label={t("schedule.sections.project.title")}
+          description={t("schedule.sections.project.description")}
         >
           <Controller
             name="projectTitle"
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="project-title">Título do Projeto / Pesquisa</FieldLabel>
+                <FieldLabel htmlFor="project-title">{t("schedule.sections.project.projectTitle")}</FieldLabel>
                 <Input 
                   {...field} 
                   id="project-title" 
-                  placeholder="Título do seu projeto" 
+                  placeholder={t("schedule.sections.project.projectTitlePlaceholder")} 
                   aria-invalid={fieldState.invalid}
                   className="border-primary/20 border-2"
                 />
@@ -378,16 +381,16 @@ export function ScheduleForm({
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="description">Finalidade do Uso</FieldLabel>
+                <FieldLabel htmlFor="description">{t("schedule.sections.project.purpose")}</FieldLabel>
                 <Textarea
                   {...field}
                   id="description"
                   rows={4}
-                  placeholder="Descreva brevemente o objetivo do uso do equipamento..."
+                  placeholder={t("schedule.sections.project.purposePlaceholder")}
                   className="resize-none border-primary/20 border-2"
                   aria-invalid={fieldState.invalid}
                 />
-                <FieldDescription>Mínimo de 20 caracteres</FieldDescription>
+                <FieldDescription>{t("schedule.sections.project.purposeDescription")}</FieldDescription>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </Field>
             )}
@@ -414,19 +417,11 @@ export function ScheduleForm({
                   />
                   <div className="flex flex-col gap-2">
                     <FieldLabel htmlFor="accept-term" className="cursor-pointer font-medium">
-                      Li e aceito o Termo de Responsabilidade de Uso do Laboratório
+                      {t("schedule.terms.accept")}
                     </FieldLabel>
                     <FieldDescription className="text-xs">
-                      Declaro estar ciente das normas de biossegurança, responsabilizando-me pelo uso
-                      adequado dos equipamentos e materiais, bem como pelo cumprimento dos protocolos
-                      estabelecidos pelo laboratório.
+                      {t("schedule.terms.description")}
                     </FieldDescription>
-                    <button
-                      type="button"
-                      className="text-xs font-medium underline underline-offset-2 text-primary w-fit hover:opacity-70 transition-opacity"
-                    >
-                      Ler Termo Completo
-                    </button>
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                   </div>
                 </Field>
@@ -441,7 +436,7 @@ export function ScheduleForm({
             className="w-full"
             loading={form.formState.isSubmitting}
           >
-            Solicitar Agendamento
+            {t("schedule.terms.submit")}
           </Button>
         </form>
       </Card>

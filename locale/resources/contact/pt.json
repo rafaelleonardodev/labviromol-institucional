@@ -1,0 +1,25 @@
+{
+  "title": "Contato",
+  "description": "Entre em contato conosco para dúvidas, colaborações ou informações sobre o laboratório",
+  "phone": {
+    "title": "Telefone",
+    "schedule": "Seg-Sex: 9h às 16h"
+  },
+  "address": {
+    "title": "Endereço",
+    "street": "Av. Agostinho Leão Junior, 108 - Alto da Glória",
+    "city": "Curitiba - PR",
+    "zipCode": "CEP 80030-110"
+  },
+  "email": {
+    "title": "E-mail",
+    "responseTime": "Resposta em até 48 horas úteis"
+  },
+  "hours": {
+    "title": "Horário de Funcionamento",
+    "weekdaysLabel": "Segunda a Sexta:",
+    "weekdaysValue": "9h às 16h",
+    "weekendsLabel": "Finais de semana e Feriados:",
+    "weekendsValue": "Fechado"
+  }
+}

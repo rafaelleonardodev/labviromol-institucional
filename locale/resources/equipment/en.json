@@ -1,0 +1,26 @@
+{
+  "title": "Equipment",
+  "description": "Modern infrastructure and state-of-the-art equipment for molecular virology research",
+  "access": {
+    "title": "Equipment Access",
+    "description": "Laboratory equipment is available for use by accredited researchers, graduate students, and external collaborators upon approval.",
+    "requirementsTitle": "Requirements for Use:",
+    "requirements": {
+      "training": "Specific training for equipment operation",
+      "schedule": "Prior scheduling through the online system",
+      "advisor": "Advisor approval (for students)",
+      "agreement": "Acceptance of the Responsibility Agreement",
+      "maintenance": "Commitment to maintenance and cleaning after use"
+    },
+    "scheduleText": "To schedule the use of equipment, visit our",
+    "scheduleLink": "scheduling page"
+  },
+  "back": "Back to equipment",
+  "details": {
+    "title": "Specifications",
+    "description": "Description",
+    "model": "Model",
+    "brand": "Brand",
+    "code": "Code"
+  }
+}

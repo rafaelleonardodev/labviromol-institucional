@@ -1,0 +1,25 @@
+{
+  "title": "Contact",
+  "description": "Get in touch with us for questions, collaborations, or information about the laboratory",
+  "phone": {
+    "title": "Phone",
+    "schedule": "Mon–Fri: 9 AM to 4 PM"
+  },
+  "address": {
+    "title": "Address",
+    "street": "108 Agostinho Leão Junior Avenue - Alto da Glória",
+    "city": "Curitiba, Paraná",
+    "zipCode": "ZIP Code 80030-110"
+  },
+  "email": {
+    "title": "Email",
+    "responseTime": "Response within 48 business hours"
+  },
+  "hours": {
+    "title": "Opening Hours",
+    "weekdaysLabel": "Monday to Friday:",
+    "weekdaysValue": "9 AM to 4 PM",
+    "weekendsLabel": "Weekends and Holidays:",
+    "weekendsValue": "Closed"
+  }
+}

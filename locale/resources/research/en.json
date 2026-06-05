@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Research & Projects",
+    "description": "Explore the research projects developed in our laboratory and their contributions to scientific advancement"
+  },
+  "stats": {
+    "ongoing": "{{count}} ongoing projects",
+    "concluded": "{{count}} completed projects"
+  },
+  "collaborations": {
+    "title": "Collaborations & Partnerships",
+    "description": "Our research projects are developed in collaboration with national and international institutions, including:"
+  },
+  "projectStatus": {
+    "Planned": "Planned",
+    "InProgress": "In progress",
+    "Completed": "Completed",
+    "Canceled": "Canceled"
+  },
+  "responsible": "Responsible",
+  "promotion": "Promotion"
+}
