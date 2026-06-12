@@ -1,19 +1,18 @@
 import { assetsService } from "@/services/assets-service";
 import { Equipment } from "@/utils/types";
 import ScheduleContent from "@/components/features/schedule/schedule-content";
+import { getLocale } from "@/lib/locale";
 
 export default async function SchedulePage() {
+  const language = await getLocale();
   let equipmentsOptions: Equipment[] = [];
-  let error = null;
 
   try {
-    equipmentsOptions = await assetsService.getAll();
+    const response = await assetsService.getAll(language);
+    equipmentsOptions = response.data;
   } catch (err) {
-    error = err instanceof Error ? err.message : "Erro ao buscar equipamentos";
     console.error("Erro ao buscar equipamentos:", err);
   }
 
-  return (
-    <ScheduleContent equipmentsOptions={equipmentsOptions} />
-  );
+  return <ScheduleContent equipmentsOptions={equipmentsOptions} />;
 }

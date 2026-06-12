@@ -1,19 +1,18 @@
 import { researchService } from "@/services/research-service";
 import { Publication } from "@/utils/types";
 import PublicationContent from "@/components/features/publication/publication-content";
+import { getLocale } from "@/lib/locale";
 
 export default async function PublicationsPage() {
+  const language = await getLocale();
   let publications: Publication[] = [];
-  let error = null;
 
   try {
-    publications = await researchService.getAllPublication();
+    const response = await researchService.getAllPublication(language);
+    publications = response.data;
   } catch (err) {
-    error = err instanceof Error ? err.message : "Erro ao buscar publicações";
     console.error("Erro ao buscar publicações:", err);
   }
 
-  return (
-    <PublicationContent publications={publications} />
-  );
+  return <PublicationContent publications={publications} />;
 }

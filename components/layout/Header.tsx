@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Languages } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,12 +21,15 @@ const LANGUAGES = [
 ] as const;
 
 function LanguageSwitcher() {
+  const router = useRouter();
   const { i18n, t } = useTranslation();
   const current = i18n.language?.slice(0, 2); // "pt-BR" → "pt"
   const next = current === "pt" ? "en" : "pt";
 
   function toggle() {
+    document.cookie = `i18next=${next};path=/;max-age=31536000;SameSite=Lax`;
     i18n.changeLanguage(next);
+    router.refresh();
   }
 
   return (

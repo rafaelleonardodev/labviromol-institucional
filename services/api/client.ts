@@ -3,12 +3,25 @@ const BASE_URL = process.env.API_URL;
 type FetchOptions = RequestInit & {
   revalidate?: number | false;
   tags?: string[];
+  params?: Record<string, string | number | boolean | undefined | null>;
 };
 
-async function apiFetch<T>(path: string, options: FetchOptions = {}): Promise<T> {
-  const { revalidate, tags, ...init } = options;
+function buildUrl(path: string, params?: FetchOptions["params"]): string {
+  if (!params) return `${BASE_URL}${path}`;
+  const qs = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null) {
+      qs.set(key, String(value));
+    }
+  }
+  const queryString = qs.toString();
+  return queryString ? `${BASE_URL}${path}?${queryString}` : `${BASE_URL}${path}`;
+}
 
-  const res = await fetch(`${BASE_URL}${path}`, {
+async function apiFetch<T>(path: string, options: FetchOptions = {}): Promise<T> {
+  const { revalidate, tags, params, ...init } = options;
+
+  const res = await fetch(buildUrl(path, params), {
     ...init,
     headers: { "Content-Type": "application/json", ...init.headers },
     next: {
@@ -20,9 +33,7 @@ async function apiFetch<T>(path: string, options: FetchOptions = {}): Promise<T>
   if (!res.ok) throw new Error(`API error ${res.status}: ${path}`);
 
   const contentType = res.headers.get("content-type");
-  if (!contentType || !contentType.includes("application/json")) {
-    return null as T;
-  }
+  if (!contentType?.includes("application/json")) return null as T;
 
   return res.json() as Promise<T>;
 }

@@ -1,9 +1,20 @@
-import { Equipment } from "@/utils/types";
+import { Equipment, PagedRequest, PagedResponse } from "@/utils/types";
 import { api } from "./api/client";
 
+const assetsBaseUrl = "assets/public"
+
 export const assetsService = {
-  getAll: () => 
-    api.get<Equipment[]>("assets/equipments", {tags: ["equipments"], revalidate: 0}),
-  getById: (id: string) =>
-    api.get<Equipment>(`assets/equipments/${id}`, {tags: [`equipment-${id}`], revalidate: 0})
-}
+  getAll: (language?: string, paged?: PagedRequest) =>
+    api.get<PagedResponse<Equipment>>(assetsBaseUrl + "/equipments", {
+      tags: ["equipments"],
+      revalidate: 3600,
+      params: { language, ...paged },
+    }),
+
+  getById: (id: string, language?: string) =>
+    api.get<Equipment>(assetsBaseUrl + `/equipments/${id}`, {
+      tags: [`equipment-${id}`],
+      revalidate: 3600,
+      params: { language },
+    }),
+};

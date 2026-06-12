@@ -38,7 +38,7 @@ export type Project = {
   status: ProjectStatus;
   description: string;
   researchLead: string;
-  partnerName: string;
+  partner: string;
   createdAt: string;
 }
 
@@ -74,3 +74,21 @@ export type Partner = {
   name: string;
   createdAt: string;
 }
+
+export type PagedRequest = {
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  sortDirection?: "asc" | "desc";
+  search?: string;
+};
+
+export type PagedResponse<T> = {
+  data: T[];
+  currentPage: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+};

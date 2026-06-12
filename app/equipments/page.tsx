@@ -1,19 +1,18 @@
 import { assetsService } from "@/services/assets-service";
 import { Equipment } from "@/utils/types";
 import EquipmentContent from "@/components/features/equipment/equipment-content";
+import { getLocale } from "@/lib/locale";
 
 export default async function EquipmentsPage() {
+  const language = await getLocale();
   let equipments: Equipment[] = [];
-  let error = null;
 
   try {
-    equipments = await assetsService.getAll();
+    const response = await assetsService.getAll(language);
+    equipments = response.data;
   } catch (err) {
-    error = err instanceof Error ? err.message : "Erro ao buscar equipamentos";
     console.error("Erro ao buscar equipamentos:", err);
   }
 
-  return (
-    <EquipmentContent equipments={equipments} />
-  );
+  return <EquipmentContent equipments={equipments} />;
 }

@@ -1,21 +1,23 @@
 import { researchService } from "@/services/research-service";
 import { Partner, Project } from "@/utils/types";
 import ResearchContent from "@/components/features/research/research-content";
+import { getLocale } from "@/lib/locale";
 
 export default async function ResearchPage() {
+  const language = await getLocale();
   let projects: Project[] = [];
   let partners: Partner[] = [];
-  let error = null;
 
   try {
-    projects = await researchService.getAllProjects();
-    partners = await researchService.getAllPartners();
+    const [projectsRes, partnersRes] = await Promise.all([
+      researchService.getAllProjects(language),
+      researchService.getAllPartners(language),
+    ]);
+    projects = projectsRes.data;
+    partners = partnersRes.data;
   } catch (err) {
-    error = err instanceof Error ? err.message : "Erro ao buscar projetos";
     console.error("Erro ao buscar projetos:", err);
   }
 
-  return (
-    <ResearchContent projects={projects} partners={partners} />
-  );
+  return <ResearchContent projects={projects} partners={partners} />;
 }

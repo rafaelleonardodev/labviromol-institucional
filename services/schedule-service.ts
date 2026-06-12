@@ -1,7 +1,9 @@
 import { CreateSchedule } from "@/utils/types";
 import { api } from "./api/client";
 
+const scheduleBaseUrl = "scheduling/public"
+
 export const scheduleService = {
     create: (schedule: CreateSchedule) =>
-        api.post("scheduling/schedules", schedule)
+        api.post(scheduleBaseUrl+"/schedules", schedule)
 }

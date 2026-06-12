@@ -20,7 +20,7 @@ export default function ProjectsList({ projects }: Props): React.ReactNode {
           title={project.title}
           description={project.description}
           responsible={project.researchLead}
-          partner={project.partnerName}
+          partner={project.partner}
           status={project.status}
         />
       )}
