@@ -1,12 +1,13 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
+
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
-import Link from "next/link";
 import EquipmentsList from "@/components/features/equipment/equipment-list";
-import { Equipment } from "@/utils/types";
+import { Equipment, PagedResponse } from "@/utils/types";
 
 const requirements = [
   "equipment.access.requirements.training",
@@ -17,11 +18,11 @@ const requirements = [
 ];
 
 type Props = {
-  equipments: Equipment[];
-}
+  equipmentsResponse: PagedResponse<Equipment>;
+};
 
-export default function EquipmentContent({equipments}: Props) {
-  const {t} = useTranslation();
+export default function EquipmentContent({ equipmentsResponse }: Props) {
+  const { t } = useTranslation();
 
   return (
     <>
@@ -40,18 +41,16 @@ export default function EquipmentContent({equipments}: Props) {
       {/* Equipment grid */}
       <Section size="md">
         <Container className="flex flex-col gap-8">
-          <EquipmentsList equipments={equipments}/>
+          <EquipmentsList initialResponse={equipmentsResponse} />
 
           {/* Access block */}
           <div className="rounded-xl border border-border bg-card p-8 flex flex-col gap-4">
             <Typography variant="h3" as="h3">
               {t("equipment.access.title")}
             </Typography>
-
             <Typography variant="p" as="p" className="text-muted-foreground">
               {t("equipment.access.description")}
             </Typography>
-
             <div className="rounded-lg bg-muted p-4 flex flex-col gap-3">
               <p className="text-sm font-semibold">
                 {t("equipment.access.requirementsTitle")}
@@ -64,7 +63,6 @@ export default function EquipmentContent({equipments}: Props) {
                 ))}
               </ul>
             </div>
-
             <Typography variant="p" as="p" className="text-muted-foreground text-sm">
               {t("equipment.access.scheduleText")}{" "}
               <Link

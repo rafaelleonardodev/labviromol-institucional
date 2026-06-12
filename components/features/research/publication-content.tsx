@@ -1,19 +1,21 @@
-"use client"
+"use client";
+
+import { Library } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
-import { Library } from "lucide-react";
 import PublicationsList from "@/components/features/research/publications-list";
-import { Publication } from "@/utils/types";
-import { useTranslation } from "react-i18next";
+import { PagedResponse, Publication } from "@/utils/types";
 
 type Props = {
-  publications: Publication[];
-}
+  publicationsResponse: PagedResponse<Publication>;
+};
 
-export default function PublicationContent({publications}: Props) {
-  const {t} = useTranslation();
+export default function PublicationContent({ publicationsResponse }: Props) {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Hero */}
@@ -31,13 +33,12 @@ export default function PublicationContent({publications}: Props) {
       {/* Publications list */}
       <Section size="md">
         <Container className="flex flex-col gap-6">
-          {/* Count */}
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <Library className="h-4 w-4" />
-            {t("publication.indexedCount", { count: publications.length })}
+            {t("publication.indexedCount", { count: publicationsResponse.totalCount })}
           </div>
 
-          <PublicationsList publications={publications} />
+          <PublicationsList initialResponse={publicationsResponse} />
         </Container>
       </Section>
     </>

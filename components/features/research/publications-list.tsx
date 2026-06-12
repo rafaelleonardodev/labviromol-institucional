@@ -2,19 +2,23 @@
 
 import List from "@/components/common/list/list";
 import { PublicationCard } from "@/components/features/cards/publication-card";
-import { Publication } from "@/utils/types";
-import { useTranslation } from "react-i18next";
+import { PagedResponse, Publication } from "@/utils/types";
+import { fetchPublicationsPage } from "@/actions/research-actions";
+
+const MIN_VISIBLE = 6;
 
 type Props = {
-  publications: Publication[];
+  initialResponse: PagedResponse<Publication>;
 };
 
-export default function PublicationsList({ publications }: Props): React.ReactNode {
-  const {t} = useTranslation();
+export default function PublicationsList({ initialResponse }: Props): React.ReactNode {
   return (
     <List
-      list={publications}
-      showLimit={6}
+      initialItems={initialResponse.data}
+      hasNextPage={initialResponse.hasNextPage}
+      currentPage={initialResponse.currentPage}
+      minVisible={MIN_VISIBLE}
+      fetchMore={fetchPublicationsPage}
       listingStyle="flex flex-col gap-4"
       renderItem={(publication) => (
         <PublicationCard

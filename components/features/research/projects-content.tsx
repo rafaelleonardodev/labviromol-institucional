@@ -1,23 +1,25 @@
-"use client"
+"use client";
+
+import { useTranslation } from "react-i18next";
+import { FlaskConical, ClipboardCheck } from "lucide-react";
 
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
-import { FlaskConical, ClipboardCheck } from "lucide-react";
 import ProjectsList from "@/components/features/research/projects-list";
-import { Partner, Project } from "@/utils/types";
-import { useTranslation } from "react-i18next";
+import { PagedResponse, Partner, Project } from "@/utils/types";
 import { ProjectStatus } from "@/utils/enums";
 
 type Props = {
-  projects: Project[];
+  projectsResponse: PagedResponse<Project>;
   partners: Partner[];
-}
+};
 
-export default function ResearchContent({projects, partners}: Props) {
-  const {t} = useTranslation();
-  const ongoing = projects.filter((p) => p.status === ProjectStatus.InProgress);
-  const concluded = projects.filter((p) => p.status === ProjectStatus.Completed);
+export default function ProjectsContent({ projectsResponse, partners }: Props) {
+  const { t } = useTranslation();
+
+  const ongoing = projectsResponse.data.filter((p) => p.status === ProjectStatus.InProgress);
+  const concluded = projectsResponse.data.filter((p) => p.status === ProjectStatus.Completed);
 
   return (
     <>
@@ -26,7 +28,6 @@ export default function ResearchContent({projects, partners}: Props) {
           <Typography variant="h1" as="h1">
             {t("research.hero.title")}
           </Typography>
-
           <Typography variant="p" as="p" className="max-w-2xl">
             {t("research.hero.description")}
           </Typography>
@@ -40,25 +41,19 @@ export default function ResearchContent({projects, partners}: Props) {
               <FlaskConical className="h-4 w-4" />
               {t("research.stats.ongoing", { count: ongoing.length })}
             </span>
-
             <span className="flex items-center gap-1.5">
               <ClipboardCheck className="h-4 w-4" />
               {t("research.stats.concluded", { count: concluded.length })}
             </span>
           </div>
 
-          <ProjectsList projects={projects} />
+          <ProjectsList initialResponse={projectsResponse} />
 
           <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4 mt-2">
             <Typography variant="h3" as="h3">
               {t("research.collaborations.title")}
             </Typography>
-
-            <Typography
-              variant="body"
-              as="p"
-              className="text-muted-foreground"
-            >
+            <Typography variant="body" as="p" className="text-muted-foreground">
               {t("research.collaborations.description")}
             </Typography>
             <ul className="flex flex-col gap-1.5 list-disc list-inside">

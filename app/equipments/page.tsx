@@ -1,18 +1,31 @@
 import { assetsService } from "@/services/assets-service";
-import { Equipment } from "@/utils/types";
+import { Equipment, PagedResponse } from "@/utils/types";
 import EquipmentContent from "@/components/features/equipment/equipment-content";
 import { getLocale } from "@/lib/locale";
 
+const PAGE_SIZE = 6;
+
 export default async function EquipmentsPage() {
   const language = await getLocale();
-  let equipments: Equipment[] = [];
+
+  let equipmentsResponse: PagedResponse<Equipment> = {
+    data: [],
+    currentPage: 1,
+    pageSize: PAGE_SIZE,
+    totalCount: 0,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false,
+  };
 
   try {
-    const response = await assetsService.getAll(language);
-    equipments = response.data;
+    equipmentsResponse = await assetsService.getAll(language, {
+      pageNumber: 1,
+      pageSize: PAGE_SIZE,
+    });
   } catch (err) {
     console.error("Erro ao buscar equipamentos:", err);
   }
 
-  return <EquipmentContent equipments={equipments} />;
+  return <EquipmentContent equipmentsResponse={equipmentsResponse} />;
 }

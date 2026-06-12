@@ -1,30 +1,30 @@
 "use client";
 
-import { Member } from "@/utils/types";
 import { useTranslation } from "react-i18next";
+import { ArrowRight, Users } from "lucide-react";
+import Link from "next/link";
+
+import { Member, PagedResponse } from "@/utils/types";
 import { Container } from "@/components/common/container/container";
 import { Section } from "@/components/common/section/section";
 import { Typography } from "@/components/common/typography/typography";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users } from "lucide-react";
-import TeamList from "@/components/features/team/team-list";
-import Link from "next/link";
+import TeamList from "@/components/features/research/team-list";
 
 type Props = {
-  members: Member[]
-}
+  membersResponse: PagedResponse<Member>;
+};
 
 const opportunities = [
   "team.joinTeam.opportunities.undergraduateResearch",
   "team.joinTeam.opportunities.mastersPhd",
   "team.joinTeam.opportunities.postdoctoral",
-  "team.joinTeam.opportunities.technicalInternship"
+  "team.joinTeam.opportunities.technicalInternship",
 ];
 
-export default function TeamContent({members} : Props) {
+export default function TeamContent({ membersResponse }: Props) {
+  const { t } = useTranslation();
 
-  const {t} = useTranslation(); 
-  
   return (
     <>
       {/* Hero */}
@@ -33,12 +33,7 @@ export default function TeamContent({members} : Props) {
           <Typography variant="h1" as="h1">
             {t("team.hero.title")}
           </Typography>
-
-          <Typography
-            variant="p"
-            as="p"
-            className="max-w-2xl"
-          >
+          <Typography variant="p" as="p" className="max-w-2xl">
             {t("team.hero.subtitle")}
           </Typography>
         </Container>
@@ -47,7 +42,7 @@ export default function TeamContent({members} : Props) {
       {/* Members Grid */}
       <Section size="md">
         <Container>
-          <TeamList members={members} />
+          <TeamList initialResponse={membersResponse} />
         </Container>
       </Section>
 
@@ -64,29 +59,17 @@ export default function TeamContent({members} : Props) {
               </Typography>
             </div>
 
-            <Typography
-              variant="body"
-              as="p"
-              className="max-w-2xl text-muted-foreground"
-            >
+            <Typography variant="body" as="p" className="max-w-2xl text-muted-foreground">
               {t("team.joinTeam.description")}
             </Typography>
 
             <div className="flex flex-col gap-2">
-              <Typography
-                variant="body"
-                as="p"
-                className="font-semibold"
-              >
+              <Typography variant="body" as="p" className="font-semibold">
                 {t("team.joinTeam.opportunitiesTitle")}
               </Typography>
-
               <ul className="flex flex-col gap-1.5 list-disc list-inside">
                 {opportunities.map((item) => (
-                  <li
-                    key={item}
-                    className="text-sm text-muted-foreground"
-                  >
+                  <li key={item} className="text-sm text-muted-foreground">
                     {t(item)}
                   </li>
                 ))}

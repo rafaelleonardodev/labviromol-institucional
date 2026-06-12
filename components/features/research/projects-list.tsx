@@ -2,17 +2,23 @@
 
 import List from "@/components/common/list/list";
 import { ResearchCard } from "@/components/features/cards/research-card";
-import { Project } from "@/utils/types";
+import { PagedResponse, Project } from "@/utils/types";
+import { fetchProjectsPage } from "@/actions/research-actions";
+
+const MIN_VISIBLE = 6;
 
 type Props = {
-  projects: Project[];
+  initialResponse: PagedResponse<Project>;
 };
 
-export default function ProjectsList({ projects }: Props): React.ReactNode {
+export default function ProjectsList({ initialResponse }: Props): React.ReactNode {
   return (
     <List
-      list={projects}
-      showLimit={6}
+      initialItems={initialResponse.data}
+      hasNextPage={initialResponse.hasNextPage}
+      currentPage={initialResponse.currentPage}
+      minVisible={MIN_VISIBLE}
+      fetchMore={fetchProjectsPage}
       listingStyle="flex flex-col gap-4"
       renderItem={(project) => (
         <ResearchCard
