@@ -20,11 +20,11 @@ const LANGUAGES = [
 ] as const;
 
 function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const current = i18n.language?.slice(0, 2); // "pt-BR" → "pt"
+  const next = current === "pt" ? "en" : "pt";
 
   function toggle() {
-    const next = current === "pt" ? "en" : "pt";
     i18n.changeLanguage(next);
   }
 
@@ -34,10 +34,12 @@ function LanguageSwitcher() {
       size="sm"
       onClick={toggle}
       className="flex items-center gap-1.5 font-medium"
-      title="Trocar idioma / Switch language"
+      aria-label={`${t("common.switchLanguage")}: ${next.toUpperCase()}`}
     >
-      <Languages className="w-4 h-4" />
-      {LANGUAGES.find((l) => l.code === current)?.label ?? "PT"}
+      <Languages className="w-4 h-4" aria-hidden="true" />
+      <span aria-hidden="true">
+        {LANGUAGES.find((l) => l.code === current)?.label ?? "PT"}
+      </span>
     </Button>
   );
 }
@@ -47,55 +49,51 @@ export function Header() {
   const { t } = useTranslation();
 
   const navItems = [
-    { label: t("common.home"), href: "/" },
-    { label: t("common.about"), href: "/about" },
-    { label: t("common.team"), href: "/team" },
-    { label: t("common.research"), href: "/research" },
+    { label: t("common.home"),         href: "/" },
+    { label: t("common.about"),        href: "/about" },
+    { label: t("common.team"),         href: "/team" },
+    { label: t("common.research"),     href: "/research" },
     { label: t("common.publications"), href: "/publications" },
-    { label: t("common.equipments"), href: "/equipments" },
-    { label: t("common.contact"), href: "/contact" },
+    { label: t("common.equipments"),   href: "/equipments" },
+    { label: t("common.contact"),      href: "/contact" },
   ];
 
   return (
-    <header className="
-      w-full
-      sticky top-0 z-50
-      border-b border-border
-      bg-background/80 backdrop-blur
-    ">
-      <div className="
-        max-w-6xl
-        mx-auto
-        px-6
-        h-16
-        flex
-        items-center
-        justify-between
-      ">
+    <header
+      className="w-full sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur"
+      role="banner"
+    >
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/images/small-logo.png"
-            alt="Logo LabViroMol"
-            width={40}
-            height={40}
-            className="object-contain"
-          />
-          <span className="font-heading font-semibold text-lg">
-            LabViroMol
+        <Link href="/" aria-label="LabViroMol — página inicial">
+          <span className="flex items-center gap-2">
+            <Image
+              src="/images/small-logo.png"
+              alt=""
+              aria-hidden="true"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <span className="font-heading font-semibold text-lg">
+              LabViroMol
+            </span>
           </span>
         </Link>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden lg:flex items-center gap-2">
-          {navItems.map((item, index) => (
+        <nav
+          aria-label={t("common.mainNavigation")}
+          className="hidden lg:flex items-center gap-2"
+        >
+          {navItems.map((item) => (
             <Button
-              key={index}
+              key={item.href}
               variant={pathname === item.href ? "primary" : "ghost"}
-              className="data-[active=true]:bg-default/10"
               size="sm"
               asChild
+              aria-current={pathname === item.href ? "page" : undefined}
             >
               <Link href={item.href}>{item.label}</Link>
             </Button>
@@ -105,9 +103,8 @@ export function Header() {
           <Button asChild className="ml-2 shadow-sm" size="sm">
             <Link href="/schedule">{t("common.schedule")}</Link>
           </Button>
-          
-          <LanguageSwitcher />
 
+          <LanguageSwitcher />
         </nav>
 
         {/* MOBILE MENU */}
@@ -116,19 +113,27 @@ export function Header() {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="w-5 h-5" />
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={t("common.openMenu")}
+              >
+                <Menu className="w-5 h-5" aria-hidden="true" />
               </Button>
             </SheetTrigger>
 
             <SheetContent side="right" className="w-64 p-6 items-center">
-              <nav className="flex flex-col gap-3 max-w-[210px] w-full">
-                {navItems.map((item, index) => (
+              <nav
+                aria-label={t("common.mobileNavigation")}
+                className="flex flex-col gap-3 max-w-[210px] w-full"
+              >
+                {navItems.map((item) => (
                   <Button
-                    key={index}
+                    key={item.href}
                     variant={pathname === item.href ? "primary" : "outline"}
-                    className="data-[active=true]:bg-default/10 w-full"
+                    className="w-full"
                     asChild
+                    aria-current={pathname === item.href ? "page" : undefined}
                   >
                     <Link href={item.href}>{item.label}</Link>
                   </Button>
@@ -136,7 +141,7 @@ export function Header() {
 
                 {/* CTA */}
                 <Button asChild className="mt-4 shadow-sm">
-                  <Link href="/schedule">Agendar</Link>
+                  <Link href="/schedule">{t("common.schedule")}</Link>
                 </Button>
               </nav>
             </SheetContent>

@@ -8,6 +8,10 @@
   "equipments": "Equipments",
   "contact": "Contact",
   "schedule": "Schedule",
+  "mainNavigation": "Main navigation",
+  "mobileNavigation": "Mobile navigation",
+  "openMenu": "Open navigation menu",
+  "switchLanguage": "Switch language to",
   "footer": {
     "description": "A center of excellence in molecular virological research, committed to scientific innovation.",
     "quickLinks": "Quick Links",
@@ -24,8 +28,26 @@
   "viewMore": "View more",
   "viewDetails": "View details",
   "image": {
-    "alt": "{{objetc}} image: {{name}}",
+    "alt": "{{object}} image: {{name}}",
     "unavailable": "No image available"
   },
-  "equipment": "Equipment"
+  "equipment": "Equipment",
+  "accessibility": {
+    "label": "Accessibility",
+    "trigger": "Open accessibility panel",
+    "close": "Close accessibility panel",
+    "reset": "Reset to defaults",
+    "contrast": {
+      "label": "Contrast",
+      "off": "High contrast",
+      "on": "High contrast on"
+    },
+    "fontSize": {
+      "label": "Text size",
+      "normal": "Normal size",
+      "large": "Large size",
+      "xlarge": "Extra large size",
+      "hint": "Normal · Large · Extra large"
+    }
+  }
 }

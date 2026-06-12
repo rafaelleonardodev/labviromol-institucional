@@ -148,3 +148,84 @@
     @apply font-sans;
   }
 }
+
+/* ============================================================
+   ACCESSIBILITY — HIGH CONTRAST
+   Overrides design tokens for WCAG AAA contrast ratios.
+   Applied when <html class="high-contrast"> is set.
+   ============================================================ */
+.high-contrast {
+  /* Surfaces */
+  --background:           oklch(0%   0 0);
+  --foreground:           oklch(100% 0 0);
+  --card:                 oklch(6%   0 0);
+  --card-foreground:      oklch(100% 0 0);
+  --popover:              oklch(6%   0 0);
+  --popover-foreground:   oklch(100% 0 0);
+
+  /* Primary — bright teal, passes 4.5:1 against black */
+  --primary:              oklch(72% 0.14 200);
+  --primary-foreground:   oklch(0%  0    0);
+  --primary-soft:         oklch(20% 0.06 200);
+
+  /* Secondary — bright green */
+  --secondary:            oklch(70% 0.18 140);
+  --secondary-foreground: oklch(0%  0    0);
+  --secondary-soft:       oklch(18% 0.06 140);
+
+  /* Muted */
+  --muted:                oklch(14% 0 0);
+  --muted-foreground:     oklch(82% 0 0);
+
+  /* Accent */
+  --accent:               oklch(16% 0 0);
+  --accent-foreground:    oklch(100% 0 0);
+
+  /* Borders & inputs */
+  --border:               oklch(58% 0 0);
+  --input:                oklch(58% 0 0);
+  --ring:                 oklch(72% 0.14 200);
+
+  /* Status */
+  --destructive:          oklch(68% 0.25 25);
+
+  /* Sidebar */
+  --sidebar:              oklch(6%   0 0);
+  --sidebar-foreground:   oklch(100% 0 0);
+  --sidebar-border:       oklch(40% 0 0);
+}
+
+/* Extra-thick focus rings in high contrast */
+.high-contrast *:focus-visible {
+  outline: 3px solid oklch(72% 0.14 200) !important;
+  outline-offset: 3px !important;
+}
+
+/* ============================================================
+   ACCESSIBILITY — FONT SCALE
+   Changes the html root font-size so every rem value scales.
+   ============================================================ */
+.font-scale-lg { font-size: 112.5%; } /* 18 px base */
+.font-scale-xl { font-size: 125%;   } /* 20 px base */
+
+/* ============================================================
+   ACCESSIBILITY — SKIP LINK
+   Visually hidden until reached via keyboard Tab.
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1.25rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 0.1s ease;
+}
+.skip-link:focus {
+  top: 0;
+}

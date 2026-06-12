@@ -7,6 +7,10 @@
   "equipments": "Equipamentos",
   "contact": "Contato",
   "schedule": "Agendar",
+  "mainNavigation": "Navegação principal",
+  "mobileNavigation": "Navegação móvel",
+  "openMenu": "Abrir menu de navegação",
+  "switchLanguage": "Mudar idioma para",
   "footer": {
     "description": "Centro de excelência em pesquisa virológica molecular, comprometido com a inovação científica.",
     "quickLinks": "Links Rápidos",
@@ -26,5 +30,23 @@
     "alt": "Imagem do {{object}} {{name}}",
     "unavailable": "Sem imagem disponível"
   },
-  "equipment": "Equipamento"
+  "equipment": "Equipamento",
+  "accessibility": {
+    "label": "Acessibilidade",
+    "trigger": "Abrir painel de acessibilidade",
+    "close": "Fechar painel de acessibilidade",
+    "reset": "Restaurar padrões",
+    "contrast": {
+      "label": "Contraste",
+      "off": "Alto contraste",
+      "on": "Alto contraste ativado"
+    },
+    "fontSize": {
+      "label": "Tamanho do texto",
+      "normal": "Tamanho normal",
+      "large": "Tamanho grande",
+      "xlarge": "Tamanho extra grande",
+      "hint": "Normal · Grande · Extra grande"
+    }
+  }
 }
