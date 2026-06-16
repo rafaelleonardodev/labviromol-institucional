@@ -63,9 +63,43 @@ export function Footer() {
             </p>
           </div>
         </div>
-
       </div>
+      {/* DESENVOLVIMENTO */}
+      <div className="space-y-3 max-w-6xl mx-auto px-6 py-12">
+        <h3 className="font-heading text-lg font-semibold">
+          {t("common.footer.development.title")}
+        </h3>
 
+        <div className="text-sm text-muted-foreground space-y-2">
+          <p>
+            {t("common.footer.development.description")}
+          </p>
+
+          <div className="space-y-1">
+            <p className="font-medium text-foreground">
+              UFPR - Universidade Federal do Paraná
+              <br/>
+              GEPTA - Grupo de Estudos e Pesquisas em Tecnologia Aplicada 
+            </p>
+
+            <p>
+              Prof. Dr. Luis Antônio Pereira Neves — {t("common.footer.development.advisor")}
+            </p>
+
+            <p>
+              Dra. Caroline Mazetto Mendes — {t("common.footer.development.coAdvisor")}
+            </p>
+
+            <p>
+              Rafael Leonardo da Silva — {t("common.footer.development.developer")}
+            </p>
+
+            <p>
+              Vitor Deganelli Espinoza Moya — {t("common.footer.development.developer")}
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="border-t border-border text-center py-4 text-sm text-muted-foreground">
         © {new Date().getFullYear()} {t("common.footer.copyright")}
       </div>

@@ -1,4 +1,4 @@
-import { Equipment, PagedRequest, PagedResponse } from "@/utils/types";
+import { Equipment, EquipmentSchedule, PagedRequest, PagedResponse } from "@/utils/types";
 import { api } from "./api/client";
 
 const assetsBaseUrl = "assets/public"
@@ -17,4 +17,11 @@ export const assetsService = {
       revalidate: 3600,
       params: { language },
     }),
+
+  getSchedulableEquipments: (language?: string) =>
+    api.get<EquipmentSchedule[]>(assetsBaseUrl + "/equipments/schedulable", {
+      tags: ["equipments-schedulable"],
+      revalidate: 0,
+      params: { language },
+    })
 };

@@ -10,6 +10,11 @@ export type Equipment = {
   imageUrl: string;
 }
 
+export type EquipmentSchedule = {
+  id: string;
+  name: string;
+}
+
 export type Member = {
   id: string;
   displayName: string;

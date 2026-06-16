@@ -36,15 +36,18 @@ import {
 
 import { LabTimePicker } from "../../common/inputs/lab-time-picker";
 import { useScheduleForm } from "./use-schedule-form";
-import { Equipment } from "@/utils/types";
+import { EquipmentSchedule } from "@/utils/types";
 import { TFunction } from "i18next";
 
-/** Returns today as "YYYY-MM-DD" in local time */
-function getTodayString() {
-  const d  = new Date();
+function getMinScheduleDate() {
+  const d = new Date();
+
+  d.setDate(d.getDate() + 2);
+
   const yy = d.getFullYear();
   const mm = String(d.getMonth() + 1).padStart(2, "0");
   const dd = String(d.getDate()).padStart(2, "0");
+
   return `${yy}-${mm}-${dd}`;
 }
 
@@ -78,7 +81,7 @@ function FormSection({
 }
 
 type ScheduleFormProps = {
-  equipmentsOptions: Equipment[];
+  equipmentsOptions: EquipmentSchedule[];
   t: TFunction;
 };
 
@@ -87,7 +90,7 @@ export function ScheduleForm({ equipmentsOptions, t }: ScheduleFormProps) {
     useScheduleForm();
 
   const acceptTerm = form.watch("acceptTerm");
-  const todayStr = getTodayString();
+  const minScheduleDate = getMinScheduleDate();
 
   if (submitted) {
     return (
@@ -223,7 +226,7 @@ export function ScheduleForm({ equipmentsOptions, t }: ScheduleFormProps) {
                         {...field}
                         id="scheduling-date"
                         type="date"
-                        min={todayStr}
+                        min={minScheduleDate}
                         aria-invalid={fieldState.invalid}
                         className="border-primary/20 border-2"
                       />

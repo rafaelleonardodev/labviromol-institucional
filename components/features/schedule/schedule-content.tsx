@@ -9,11 +9,11 @@ import { Card } from "@/components/ui/card";
 import { ScheduleForm } from "./schedule-form";
 
 import { IMPORTANT_INFO } from "./schedule.constants";
-import { Equipment } from "@/utils/types";
+import { EquipmentSchedule } from "@/utils/types";
 import { useTranslation } from "react-i18next";
 
 type Props = {
-  equipmentsOptions: Equipment[];
+  equipmentsOptions: EquipmentSchedule[];
 }
 
 export default function ScheduleContent({equipmentsOptions}: Props) {

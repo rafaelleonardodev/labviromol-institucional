@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -37,6 +37,17 @@ export default function List<T>({
   const hasMore = items.length > minVisible || hasNextPage;
   const showViewMore = hasMore && (isCollapsed || (!isCollapsed && hasNextPage));
   const showViewLess = !isCollapsed && !hasNextPage && items.length > minVisible;
+
+  useEffect(() => {
+    setItems(initialItems);
+    setHasNextPage(initialHasNextPage);
+    setPage(initialCurrentPage);
+    setIsCollapsed(true);
+  }, [
+    initialItems,
+    initialHasNextPage,
+    initialCurrentPage,
+  ]);
 
   async function handleViewMore() {
     if (isCollapsed && items.length > minVisible) {
