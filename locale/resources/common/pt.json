@@ -21,7 +21,14 @@
       "publications": "Publicações"
     },
     "contact": "Contato",
-    "copyright": "Laboratório de Virologia Molecular"
+    "copyright": "Laboratório de Virologia Molecular",
+    "development": {
+      "title": "Desenvolvimento",
+      "description": "Este sistema foi desenvolvido como resultado de um Trabalho de Conclusão de Curso (TCC) vinculado às atividades do Laboratório de Pesquisa em Virologia Molecular – LabVIROMOL",
+      "advisor": "Orientador",
+      "coAdvisor": "Coorientadora",
+      "developer": "Aluno/Desenvolvedor"
+    }
   },
   "viewLess": "Mostrar menos",
   "viewMore": "Ver mais",

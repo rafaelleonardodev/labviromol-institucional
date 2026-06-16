@@ -8,7 +8,18 @@ export const scheduleFormSchema = z
       email: z.string().email("E-mail inválido"),
     }),
     scheduling: z.object({
-      date: z.string().min(1, "Selecione uma data"),
+      date: z
+        .string()
+        .min(1, "Selecione uma data")
+        .refine((d) => {
+          if (!d) return false;
+
+          const minDate = new Date();
+          minDate.setHours(0, 0, 0, 0);
+          minDate.setDate(minDate.getDate() + 2);
+
+          return new Date(`${d}T00:00:00`) >= minDate;
+        }, "O agendamento deve ser solicitado com pelo menos 2 dias de antecedência"),
       start: z.string().min(1, "Informe o horário de início"),
       end: z.string().min(1, "Informe o horário de término"),
     }),

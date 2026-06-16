@@ -21,7 +21,6 @@ export function AccessibilityToolbar() {
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
-  // Close on Escape
   useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => {
@@ -34,7 +33,6 @@ export function AccessibilityToolbar() {
     return () => document.removeEventListener("keydown", handler);
   }, [open]);
 
-  // Focus first element when panel opens
   useEffect(() => {
     if (open) {
       const first = panelRef.current?.querySelector<HTMLElement>("button, [tabindex]");
@@ -43,7 +41,27 @@ export function AccessibilityToolbar() {
   }, [open]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div
+      className="
+        fixed
+        z-50
+
+        bottom-6
+        right-6
+
+        flex
+        flex-col
+        items-end
+        gap-2
+
+        sm:top-1/2
+        sm:bottom-auto
+        sm:-translate-y-1/2
+
+        sm:flex-row
+        sm:items-center
+      "
+    >
       {/* Panel */}
       {open && (
         <div
@@ -162,6 +180,7 @@ export function AccessibilityToolbar() {
         aria-label={t("common.accessibility.trigger")}
         className="h-12 w-12 rounded-full shadow-lg"
         size="icon"
+        variant={"secondary"}
       >
         <Accessibility className="h-5 w-5" aria-hidden="true" />
       </Button>

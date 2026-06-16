@@ -46,7 +46,8 @@
   "terms": {
     "accept": "Li e aceito o Termo de Responsabilidade de Uso do Laboratório",
     "description": "Declaro estar ciente das normas de biossegurança, responsabilizando-me pelo uso adequado dos equipamentos e materiais, bem como pelo cumprimento dos protocolos estabelecidos pelo laboratório.",
-    "submit": "Solicitar Agendamento"
+    "submit": "Solicitar Agendamento",
+    "need": "É necessário aceitar o termo para enviar a solicitação."
   },
   "importantInfo": {
     "title": "Informações Importantes",

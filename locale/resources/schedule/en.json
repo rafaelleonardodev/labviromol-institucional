@@ -46,7 +46,8 @@
   "terms": {
     "accept": "I have read and accept the Laboratory Usage Responsibility Agreement",
     "description": "I declare that I am aware of the biosafety regulations and take responsibility for the proper use of equipment and materials, as well as compliance with laboratory protocols.",
-    "submit": "Request Scheduling"
+    "submit": "Request Scheduling",
+    "need": "You must accept the terms to submit the request."
   },
   "importantInfo": {
     "title": "Important Information",

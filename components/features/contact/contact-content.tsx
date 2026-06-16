@@ -67,6 +67,21 @@ export default function ContactContent() {
           </div>
         </Container>
       </Section>
+      <Section size="md" className="py-0">
+        <Container>
+          <div className="overflow-hidden rounded-xl border border-border">
+            <iframe
+              title={t("contact.map.title")}
+              src="https://www.google.com/maps?q=108%20Agostinho%20Le%C3%A3o%20Junior%20Avenue,%20Curitiba,%20Paran%C3%A1,%2080030-110&output=embed"
+              width="100%"
+              height="450"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            />
+          </div>
+      </Container>
+      </Section>
     </>
   );
 }

@@ -22,7 +22,14 @@
       "publications": "Publications"
     },
     "contact": "Contact",
-    "copyright": "Molecular Virology Laboratory"
+    "copyright": "Molecular Virology Laboratory",
+    "development": {
+      "title": "Development",
+      "description": "This system was developed as part of an undergraduate final project (Thesis) carried out in collaboration with Laboratório de Pesquisa em Virologia Molecular – LabVIROMOL.",
+      "advisor": "Advisor",
+      "coAdvisor": "Co-advisor",
+      "developer": "Student/Developer"
+    }
   },
   "viewLess": "View less",
   "viewMore": "View more",

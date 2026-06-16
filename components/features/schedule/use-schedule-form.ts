@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
 import { scheduleFormSchema, type ScheduleFormValues } from "./schedule.schema";
+import { notify } from "@/lib/notifications";
 
 export function useScheduleForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -30,6 +32,14 @@ export function useScheduleForm() {
   });
 
   async function onSubmit(values: ScheduleFormValues) {
+    if (!values.acceptTerm) {
+      form.setError("acceptTerm", {
+        message: "Você deve aceitar o Termo de Responsabilidade",
+      });
+
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -41,12 +51,8 @@ export function useScheduleForm() {
       },
       scheduling: {
         date: values.scheduling.date,
-        start: new Date(
-          `${values.scheduling.date}T${values.scheduling.start}`
-        ).toISOString(),
-        end: new Date(
-          `${values.scheduling.date}T${values.scheduling.end}`
-        ).toISOString(),
+        start: `${values.scheduling.date}T${values.scheduling.start}:00-03:00`,
+        end: `${values.scheduling.date}T${values.scheduling.end}:00-03:00`,
       },
       acceptTerm: values.acceptTerm,
       advisorProfessor: values.advisorProfessor,
@@ -65,17 +71,41 @@ export function useScheduleForm() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Erro ao criar agendamento");
-      }
 
-      console.log("✅ Agendamento criado com sucesso:", data);
+      switch (response.status) {
+        case 400:
+          throw new Error("Dados inválidos.");
+
+        case 409:
+          throw new Error(
+            "Já existe um agendamento para este horário."
+          );
+
+        case 422:
+          throw new Error(
+            "Horário indisponível para reserva."
+          );
+
+        case 500:
+          throw new Error(
+            "Erro interno do servidor."
+          );
+
+        default:
+          throw new Error(
+            data.error || "Erro ao criar agendamento"
+          );
+      }
+    }
+
+      notify.success("Agendamento realizado com sucesso.");
       setSubmitted(true);
       form.reset();
     } catch (err) {
       const message = 
         err instanceof Error ? err.message : "Erro ao criar agendamento";
       setError(message);
-      console.error("❌ Erro:", err);
+      notify.error(message);
     } finally {
       setLoading(false);
     }

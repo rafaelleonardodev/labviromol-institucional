@@ -11,5 +11,5 @@ export default async function EquipmentDetailPage({ params }: Props) {
   const equipment = await assetsService.getById(id, language);
 
   if (!equipment) notFound();
-  return <EquipmentDetail equipment={equipment} />;
+  return <EquipmentDetail key={language} equipment={equipment} />;
 }
