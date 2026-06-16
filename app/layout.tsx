@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { AccessibilityProvider } from "@/components/providers/accessibility-provider";
 import { AccessibilityToolbar } from "@/components/features/accessibility/accessibility-toolbar";
+import { Toaster } from "sonner";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -70,6 +71,7 @@ export default function RootLayout({
             <AccessibilityToolbar />
           </AccessibilityProvider>
         </I18nProvider>
+        <Toaster />
       </body>
     </html>
   );

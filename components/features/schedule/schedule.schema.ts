@@ -8,7 +8,15 @@ export const scheduleFormSchema = z
       email: z.string().email("E-mail inválido"),
     }),
     scheduling: z.object({
-      date: z.string().min(1, "Selecione uma data"),
+      date: z
+        .string()
+        .min(1, "Selecione uma data")
+        .refine((d) => {
+          if (!d) return false;
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          return new Date(d + "T00:00:00") >= today;
+        }, "A data não pode ser no passado"),
       start: z.string().min(1, "Informe o horário de início"),
       end: z.string().min(1, "Informe o horário de término"),
     }),
