@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
 
 import { scheduleFormSchema, type ScheduleFormValues } from "./schedule.schema";
 import { notify } from "@/lib/notifications";
+import { useTranslation } from "react-i18next";
 
 export function useScheduleForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  const { t } = useTranslation();
   const form = useForm<ScheduleFormValues>({
     resolver: zodResolver(scheduleFormSchema),
     defaultValues: {
@@ -68,37 +68,25 @@ export function useScheduleForm() {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
 
       switch (response.status) {
         case 400:
-          throw new Error("Dados inválidos.");
-
-        case 409:
-          throw new Error(
-            "Já existe um agendamento para este horário."
-          );
-
-        case 422:
-          throw new Error(
-            "Horário indisponível para reserva."
-          );
+          t("toast.invalidData");
 
         case 500:
           throw new Error(
-            "Erro interno do servidor."
+            t("toast.internalServerError")
           );
 
         default:
           throw new Error(
-            data.error || "Erro ao criar agendamento"
+            t("toast.createScheduleError")
           );
       }
     }
 
-      notify.success("Agendamento realizado com sucesso.");
+      notify.success(t("toast.scheduleRequestedSuccess"));
       setSubmitted(true);
       form.reset();
     } catch (err) {

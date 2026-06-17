@@ -7,6 +7,7 @@ import research from "./research/pt.json"
 import publication from "./publication/pt.json"
 import equipment from "./equipment/pt.json"
 import contact from "./contact/pt.json"
+import toast from "./toast/pt.json"
 
 export default {
   translation: { 
@@ -18,6 +19,7 @@ export default {
     research, 
     publication,
     equipment,
-    contact
+    contact,
+    toast
   }
 }

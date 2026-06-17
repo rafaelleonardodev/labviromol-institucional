@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -81,7 +82,15 @@ export function Footer() {
               <br/>
               GEPTA - Grupo de Estudos e Pesquisas em Tecnologia Aplicada 
             </p>
-
+            <div className="mt-4">
+              <Image
+                src="/images/gepta.png"
+                alt="Logo GEPTA"
+                width={180}
+                height={90}
+                className="h-auto w-auto max-w-[180px]"
+              />
+            </div>
             <p>
               Prof. Dr. Luis Antônio Pereira Neves — {t("common.footer.development.advisor")}
             </p>

@@ -1,0 +1,6 @@
+{
+  "scheduleRequestedSuccess": "Agendamento realizado com sucesso.",
+  "internalServerError": "Erro interno do servidor",
+  "createScheduleError": "Erro ao criar agendamento",
+  "invalidData": "Dados inválidos."
+}

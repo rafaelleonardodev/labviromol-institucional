@@ -14,6 +14,7 @@ import {
   SheetContent,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useState } from "react";
 
 const LANGUAGES = [
   { code: "pt", label: "PT" },
@@ -51,6 +52,7 @@ function LanguageSwitcher() {
 export function Header() {
   const pathname = usePathname();
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
 
   const navItems = [
     { label: t("common.home"),         href: "/" },
@@ -115,7 +117,7 @@ export function Header() {
         <div className="lg:hidden flex items-center gap-2">
           <LanguageSwitcher />
 
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
@@ -139,13 +141,13 @@ export function Header() {
                     asChild
                     aria-current={pathname === item.href ? "page" : undefined}
                   >
-                    <Link href={item.href}>{item.label}</Link>
+                    <Link href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
                   </Button>
                 ))}
 
                 {/* CTA */}
                 <Button asChild className="mt-4 shadow-sm">
-                  <Link href="/schedule">{t("common.schedule")}</Link>
+                  <Link href="/schedule" onClick={() => setOpen(false)}>{t("common.schedule")}</Link>
                 </Button>
               </nav>
             </SheetContent>

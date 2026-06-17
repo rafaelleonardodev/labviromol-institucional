@@ -1,0 +1,6 @@
+{
+  "scheduleRequestedSuccess": "Schedule requested with success.",
+  "internalServerError": "Internal server error.",
+  "createScheduleError": "Error requesting schedule.",
+  "invalidData": "Invalid data."
+}
