@@ -109,6 +109,12 @@ export function ScheduleForm({ equipmentsOptions, t }: ScheduleFormProps) {
     );
   }
 
+  const selectedEquipments = form.watch("equipments") || [];
+
+  const selectedIds = selectedEquipments
+    .map((e) => e.equipmentId)
+    .filter(Boolean);
+
   return (
     <div className="space-y-6">
       {/* ============ CARD 1: EQUIPAMENTOS E HORÁRIO ============ */}
@@ -158,11 +164,21 @@ export function ScheduleForm({ equipmentsOptions, t }: ScheduleFormProps) {
                               />
                             </SelectTrigger>
                             <SelectContent className="bg-card border border-primary/20 shadow-md z-50">
-                              {equipmentsOptions.map((eq) => (
-                                <SelectItem key={eq.id} value={eq.id}>
-                                  {eq.name}
-                                </SelectItem>
-                              ))}
+                              {equipmentsOptions
+                                .filter((eq) => {
+                                  const currentValue = form.getValues(`equipments.${index}.equipmentId`);
+
+                                  // deixa aparecer o atual selecionado nessa linha
+                                  if (eq.id === currentValue) return true;
+
+                                  // bloqueia os já usados em outras linhas
+                                  return !selectedIds.includes(eq.id);
+                                })
+                                .map((eq) => (
+                                  <SelectItem key={eq.id} value={eq.id}>
+                                    {eq.name}
+                                  </SelectItem>
+                                ))}
                             </SelectContent>
                           </Select>
 

@@ -51,8 +51,8 @@ export function useScheduleForm() {
       },
       scheduling: {
         date: values.scheduling.date,
-        start: `${values.scheduling.date}T${values.scheduling.start}:00-03:00`,
-        end: `${values.scheduling.date}T${values.scheduling.end}:00-03:00`,
+        start: `${values.scheduling.date}T${values.scheduling.start}Z`,
+        end: `${values.scheduling.date}T${values.scheduling.end}Z`,
       },
       acceptTerm: values.acceptTerm,
       advisorProfessor: values.advisorProfessor,
